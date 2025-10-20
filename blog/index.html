@@ -1,0 +1,265 @@
+<!-- =============================================
+FILE: blog/index.html
+Place this file at: /blog/index.html
+============================================= -->
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guides d’investissement – Dividend Simulator</title>
+  <meta name="description" content="Guides clairs pour comprendre les dividendes, le DRIP et construire un portefeuille de revenus passifs.">
+  <link rel="canonical" href="https://www.dividendsimulator.com/blog/">
+  <meta property="og:title" content="Guides d’investissement – Dividend Simulator">
+  <meta property="og:description" content="Comprendre les dividendes, le DRIP et bâtir un portefeuille solide.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.dividendsimulator.com/blog/">
+  <meta property="og:image" content="/assets/preview.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Guides d’investissement – Dividend Simulator">
+  <meta name="twitter:description" content="Comprendre les dividendes, le DRIP et bâtir un portefeuille solide.">
+  <meta name="twitter:image" content="/assets/preview.jpg">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header>
+    <nav aria-label="Navigation principale" style="display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 0;">
+      <a href="/fr/" aria-label="Simulateur en français">🏠 Calculateur</a>
+      <div style="display:flex;gap:.75rem;align-items:center;">
+        <a href="/fr/">FR</a>
+        <a href="/en/">EN</a>
+        <a href="/sv/">SV</a>
+        <strong>Guides</strong>
+      </div>
+    </nav>
+  </header>
+
+  <main style="max-width:900px;margin:0 auto;padding:1rem;">
+    <h1>Guides d’investissement</h1>
+    <p>Des articles courts et concrets pour mieux comprendre les dividendes, le DRIP (réinvestissement automatique), et la construction d’un portefeuille de revenus.</p>
+
+    <section aria-label="Liste des articles" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:1rem;">
+      <article>
+        <h2><a href="/blog/qu-est-ce-qu-un-dividende.html">Qu’est-ce qu’un dividende&nbsp;?</a></h2>
+        <p>Définition simple, calendrier (ex‑date, record date, payment date) et ce que cela change pour un investisseur particulier.</p>
+        <a href="/blog/qu-est-ce-qu-un-dividende.html" aria-label="Lire Qu’est-ce qu’un dividende ?">Lire →</a>
+      </article>
+
+      <article>
+        <h2><a href="/blog/le-pouvoir-du-drip.html">Le pouvoir du DRIP (réinvestissement)</a></h2>
+        <p>Pourquoi réinvestir les dividendes accélère la croissance de capital. Exemples chiffrés et erreurs à éviter.</p>
+        <a href="/blog/le-pouvoir-du-drip.html" aria-label="Lire Le pouvoir du DRIP">Lire →</a>
+      </article>
+
+      <article>
+        <h2><a href="/blog/construire-portefeuille-dividendes.html">Construire un portefeuille à dividendes</a></h2>
+        <p>Rendement, croissance, payout ratio, diversification et rythme de versement : la méthode simple pour démarrer.</p>
+        <a href="/blog/construire-portefeuille-dividendes.html" aria-label="Lire Construire un portefeuille à dividendes">Lire →</a>
+      </article>
+    </section>
+
+    <aside style="margin-top:2rem;padding:1rem;border:1px solid currentColor;border-radius:12px;">
+      <h3>Outil gratuit</h3>
+      <p>Testez votre stratégie directement dans le <a href="/fr/">simulateur de dividendes</a> (DRIP activable).</p>
+    </aside>
+  </main>
+
+  <footer style="max-width:900px;margin:2rem auto;padding:1rem;font-size:.9rem;opacity:.8;">
+    <p>© <span id="year"></span> Dividend Simulator — Guides d’investissement.</p>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
+
+
+<!-- =============================================
+FILE: blog/qu-est-ce-qu-un-dividende.html
+Place this file at: /blog/qu-est-ce-qu-un-dividende.html
+============================================= -->
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Qu’est-ce qu’un dividende ? – Guides d’investissement</title>
+  <meta name="description" content="Définition simple du dividende, calendrier de versement (ex‑date, record date, payment date) et implications pour l’investisseur.">
+  <link rel="canonical" href="https://www.dividendsimulator.com/blog/qu-est-ce-qu-un-dividende.html">
+  <meta property="og:title" content="Qu’est-ce qu’un dividende ?">
+  <meta property="og:description" content="Définition simple et calendrier de versement. Ce que cela change pour vous.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.dividendsimulator.com/blog/qu-est-ce-qu-un-dividende.html">
+  <meta property="og:image" content="/assets/preview.jpg">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header>
+    <nav aria-label="Fil d’Ariane" style="max-width:900px;margin:0 auto;padding:1rem;">
+      <a href="/fr/">🏠 Simulateur</a> · <a href="/blog/">Guides</a>
+    </nav>
+  </header>
+
+  <main style="max-width:900px;margin:0 auto;padding:1rem;">
+    <article>
+      <h1>Qu’est-ce qu’un dividende&nbsp;?</h1>
+      <p>Un <strong>dividende</strong> est une partie du bénéfice d’une entreprise versée à ses actionnaires. Il peut être payé en <em>cash</em> (le plus courant) ou en actions. Les entreprises stables et rentables — services aux collectivités, santé, consommation de base — versent souvent des dividendes réguliers.</p>
+
+      <h2>Le calendrier des dividendes</h2>
+      <ul>
+        <li><strong>Declaration date</strong> : le conseil d’administration annonce le montant et la date de versement.</li>
+        <li><strong>Ex‑dividend date</strong> : vous devez <em>détenir</em> l’action avant cette date pour toucher le dividende.</li>
+        <li><strong>Record date</strong> : date de vérification des détenteurs par la société.</li>
+        <li><strong>Payment date</strong> : la date où l’argent est versé.</li>
+      </ul>
+
+      <h2>Rendement et croissance</h2>
+      <p>Le <strong>rendement du dividende</strong> (dividend yield) = dividende annuel / prix de l’action. Mais un rendement élevé n’est pas toujours synonyme de qualité. Regardez aussi :</p>
+      <ul>
+        <li><strong>Payout ratio</strong> : part du bénéfice distribuée (viser &lt; 70 % selon secteurs).</li>
+        <li><strong>Historique</strong> : stabilité ou croissance sur 5–10 ans.</li>
+        <li><strong>Endettement</strong> et <strong>flux de trésorerie</strong>.</li>
+      </ul>
+
+      <aside style="margin:1rem 0;padding:1rem;border:1px solid currentColor;border-radius:12px;">
+        <strong>Astuce :</strong> simulez l’impact d’une hausse ou baisse du dividende dans le <a href="/fr/">simulateur</a>.
+      </aside>
+
+      <h2>Fiscalité (selon pays)</h2>
+      <p>Les dividendes peuvent être soumis à un prélèvement à la source et/ou à l’imposition locale. Vérifiez les conventions fiscales de votre pays de résidence.</p>
+
+      <hr>
+      <p style="opacity:.8;">Article éducatif — pas un conseil d’investissement. Faites vos propres recherches.</p>
+    </article>
+  </main>
+</body>
+</html>
+
+
+<!-- =============================================
+FILE: blog/le-pouvoir-du-drip.html
+Place this file at: /blog/le-pouvoir-du-drip.html
+============================================= -->
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Le pouvoir du DRIP (réinvestissement) – Guides d’investissement</title>
+  <meta name="description" content="Comprendre comment le réinvestissement des dividendes (DRIP) accélère la croissance du capital, avec exemples chiffrés.">
+  <link rel="canonical" href="https://www.dividendsimulator.com/blog/le-pouvoir-du-drip.html">
+  <meta property="og:title" content="Le pouvoir du DRIP (réinvestissement)">
+  <meta property="og:description" content="L’effet boule de neige des dividendes réinvestis expliqué simplement.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.dividendsimulator.com/blog/le-pouvoir-du-drip.html">
+  <meta property="og:image" content="/assets/preview.jpg">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header>
+    <nav aria-label="Fil d’Ariane" style="max-width:900px;margin:0 auto;padding:1rem;">
+      <a href="/fr/">🏠 Simulateur</a> · <a href="/blog/">Guides</a>
+    </nav>
+  </header>
+
+  <main style="max-width:900px;margin:0 auto;padding:1rem;">
+    <article>
+      <h1>Le pouvoir du DRIP (réinvestissement)</h1>
+      <p>Le <strong>DRIP</strong> (Dividend ReInvestment Plan) consiste à <strong>réinvestir automatiquement</strong> chaque dividende pour acheter de nouvelles actions. Ce simple mécanisme crée un <em>effet boule de neige</em> : plus d’actions → plus de dividendes → encore plus d’actions.</p>
+
+      <h2>Exemple chiffré (simplifié)</h2>
+      <p>Supposons 10 000 € investis à 4 % de rendement, dividendes versés annuellement :</p>
+      <ul>
+        <li><strong>Sans DRIP</strong> : vous encaissez 400 € / an, le capital reste 10 000 €.</li>
+        <li><strong>Avec DRIP</strong> : les 400 € rachètent des actions chaque année → au bout de 10 ans, le capital et le dividende annuel augmentent mécaniquement.</li>
+      </ul>
+      <p>Testez votre propre cas dans le <a href="/fr/">simulateur</a> en activant l’option DRIP.</p>
+
+      <h2>Quand (ne pas) utiliser le DRIP</h2>
+      <ul>
+        <li>✔️ Portefeuilles de long terme, frais faibles, titres de qualité.</li>
+        <li>✔️ Stratégie d’accumulation (avant phase “revenus”).</li>
+        <li>❌ Besoin de cash‑flow immédiat (préférez encaisser les dividendes).</li>
+        <li>❌ Secteurs très cycliques ou entreprises instables.</li>
+      </ul>
+
+      <aside style="margin:1rem 0;padding:1rem;border:1px solid currentColor;border-radius:12px;">
+        <strong>Astuce :</strong> certains courtiers permettent le DRIP automatique sans frais. Comparez les offres et lisez les petites lignes.
+      </aside>
+
+      <hr>
+      <p style="opacity:.8;">Article éducatif — pas un conseil d’investissement.</p>
+    </article>
+  </main>
+</body>
+</html>
+
+
+<!-- =============================================
+FILE: blog/construire-portefeuille-dividendes.html
+Place this file at: /blog/construire-portefeuille-dividendes.html
+============================================= -->
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Construire un portefeuille à dividendes – Guides d’investissement</title>
+  <meta name="description" content="Les critères clés pour bâtir un portefeuille à dividendes : rendement, croissance, payout ratio, diversification et périodicité des versements.">
+  <link rel="canonical" href="https://www.dividendsimulator.com/blog/construire-portefeuille-dividendes.html">
+  <meta property="og:title" content="Construire un portefeuille à dividendes">
+  <meta property="og:description" content="Rendement, croissance, payout ratio, diversification et périodicité des versements.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.dividendsimulator.com/blog/construire-portefeuille-dividendes.html">
+  <meta property="og:image" content="/assets/preview.jpg">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header>
+    <nav aria-label="Fil d’Ariane" style="max-width:900px;margin:0 auto;padding:1rem;">
+      <a href="/fr/">🏠 Simulateur</a> · <a href="/blog/">Guides</a>
+    </nav>
+  </header>
+
+  <main style="max-width:900px;margin:0 auto;padding:1rem;">
+    <article>
+      <h1>Construire un portefeuille à dividendes</h1>
+      <p>Objectif : des <strong>revenus réguliers</strong> avec une <strong>croissance soutenable</strong>. Voici un cadre simple pour démarrer et éviter les pièges classiques.</p>
+
+      <h2>1) Rendement vs. qualité</h2>
+      <p>Un haut rendement peut cacher un risque (bénéfices en baisse, dette élevée). Cherchez un équilibre : rendement raisonnable <em>et</em> entreprise solide.</p>
+
+      <h2>2) Croissance du dividende</h2>
+      <p>Privilégiez les sociétés qui augmentent leur dividende chaque année. Même +5 %/an change tout à 10 ans.</p>
+
+      <h2>3) Payout ratio</h2>
+      <p>La part du bénéfice distribuée. En général, viser < 70 % (selon secteurs). Trop haut = risque de coupe en cas de ralentissement.</p>
+
+      <h2>4) Diversification</h2>
+      <ul>
+        <li>Secteurs (santé, conso de base, utilities, industrie).</li>
+        <li>Géographie (US/Europe/Monde).</li>
+        <li>Périodicité (mensuelle/trimestrielle/semestrielle).</li>
+      </ul>
+
+      <h2>5) Frais et fiscalité</h2>
+      <p>Les frais de courtage et la fiscalité rognent le rendement net. Optimisez le choix du compte et du courtier.</p>
+
+      <aside style="margin:1rem 0;padding:1rem;border:1px solid currentColor;border-radius:12px;">
+        <strong>Checklist express</strong>
+        <ul>
+          <li>Rendement 2–6 % selon profils</li>
+          <li>Croissance du dividende positive</li>
+          <li>Payout ratio soutenable</li>
+          <li>Endettement maîtrisé</li>
+          <li>Diversification ≠ collection de titres</li>
+        </ul>
+      </aside>
+
+      <p>Prêt à tester une allocation ? Ouvrez le <a href="/fr/">simulateur</a> et comparez <em>Sans DRIP</em> vs <em>Avec DRIP</em>.</p>
+
+      <hr>
+      <p style="opacity:.8;">Article éducatif — pas un conseil d’investissement.</p>
+    </article>
+  </main>
+</body>
+</html>
