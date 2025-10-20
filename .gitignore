@@ -1,3 +1,7 @@
 .vercel
 .vercel/
 .DS_Store
+.DS_Store
+*.png
+*.pages
+*.mp4
