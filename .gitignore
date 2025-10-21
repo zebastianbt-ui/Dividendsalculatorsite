@@ -5,3 +5,7 @@
 *.png
 *.pages
 *.mp4
+
+# never commit nested copies
+Dividendscalculatorsite
+Dividendscalculator site
