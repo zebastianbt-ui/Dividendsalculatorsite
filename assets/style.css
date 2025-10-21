@@ -219,26 +219,3 @@ input,select{ width:100%; padding:14px 12px; border:1px solid var(--border); bor
   #learn-more h2{ font-size:20px; }
   #learn-more h3{ font-size:16px; }
 }
-/* Spacing + look for the learn-more block */
-#learn-more.content-block{
-  margin: 32px 0 24px;
-  padding: 18px 20px;
-  border-radius: 12px;
-  background: var(--card-bg, #fff);
-  box-sizing: border-box;
-}
-#learn-more h2{ margin: 0 0 12px; font-weight: 800; font-size: 24px; }
-#learn-more h3{ margin: 16px 0 8px; font-weight: 700; font-size: 18px; }
-#learn-more p{  margin: 8px 0; line-height: 1.6; }
-#learn-more ul{ margin: 8px 0 8px 20px; line-height: 1.6; }
-#learn-more .disclaimer{ font-size: .95em; opacity:.85; }
-
-/* Small screens */
-@media (max-width:560px){
-  #learn-more.content-block{
-    margin: 24px 0 16px !important;
-    padding: 16px 16px !important;
-  }
-  #learn-more h2{ font-size: 20px; }
-  #learn-more h3{ font-size: 16px; }
-}
