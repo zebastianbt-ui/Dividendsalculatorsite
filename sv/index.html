@@ -183,7 +183,6 @@
       <!-- Dela-knapp -->
       <button class="share-btn" id="shareBtn">Dela</button>
       <!-- Ljus/Mörk under Dela -->
-      <button class="theme-btn" id="themeToggle">☀️ 🌙</button>
 
       <div class="share-menu" id="shareMenu">
         <button id="copyLink">Kopiera länk</button>
@@ -610,16 +609,6 @@ function computeProjections(useDRIP=false){
 }
 
 // Tema-växling
-const root = document.documentElement;
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme) { root.setAttribute('data-theme', savedTheme); }
-else { root.setAttribute('data-theme', 'light'); }
-$('themeToggle').onclick = ()=>{
-  const isDark = root.getAttribute('data-theme')==='dark';
-  const next = isDark ? 'light' : 'dark';
-  root.setAttribute('data-theme', next);
-  localStorage.setItem('theme', next);
-};
 
 // Dela + CSV
 function saveToHash(){

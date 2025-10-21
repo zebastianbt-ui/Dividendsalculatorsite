@@ -184,7 +184,6 @@
       <!-- Share button (top right) -->
       <button class="share-btn" id="shareBtn">Share</button>
       <!-- Light/Dark under Share (same size) -->
-      <button class="theme-btn" id="themeToggle">☀️ 🌙</button>
 
       <div class="share-menu" id="shareMenu">
         <button id="copyLink">Copy link</button>
@@ -614,16 +613,6 @@ function computeProjections(useDRIP=false){
 }
 
 // Theme toggle
-const root = document.documentElement;
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme) { root.setAttribute('data-theme', savedTheme); }
-else { root.setAttribute('data-theme', 'light'); }
-$('themeToggle').onclick = ()=>{
-  const isDark = root.getAttribute('data-theme')==='dark';
-  const next = isDark ? 'light' : 'dark';
-  root.setAttribute('data-theme', next);
-  localStorage.setItem('theme', next);
-};
 
 // Share + CSV
 function saveToHash(){

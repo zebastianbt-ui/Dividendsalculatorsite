@@ -2,32 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&display=swap');
 
-/* Theme tokens */
+/* Theme tokens - Light mode only */
 :root{
-  --bg:#faf7fb; --card:#fff; --ink:#1f1b24; --muted:#6a6873;
-  --border:#eadcec; --brand:#b40f67; --accent:#079455;
-  --soft:#fff4fb; --soft-border:#ffd2ef; --tile:#f7f2f7;
-  --violet:#7c3aed; --rose:#ff4d94;
-}
-
-/* Auto dark scheme */
-@media (prefers-color-scheme: dark){
-  :root{
-    --bg:#151218; --card:#1d1923; --ink:#f6eef8; --muted:#bdb7c4;
-    --border:#3a3241; --brand:#db3e8e; --accent:#41d59b;
-    --soft:#2a2130; --soft-border:#3c2a35; --tile:#241f2a;
-    --violet:#8b5cf6; --rose:#ff6aa8;
-  }
-}
-
-/* Manual theme overrides */
-[data-theme="dark"]{
-  --bg:#151218; --card:#1d1923; --ink:#f6eef8; --muted:#bdb7c4;
-  --border:#3a3241; --brand:#db3e8e; --accent:#41d59b;
-  --soft:#2a2130; --soft-border:#3c2a35; --tile:#241f2a;
-  --violet:#8b5cf6; --rose:#ff6aa8;
-}
-[data-theme="light"]{
   --bg:#faf7fb; --card:#fff; --ink:#1f1b24; --muted:#6a6873;
   --border:#eadcec; --brand:#b40f67; --accent:#079455;
   --soft:#fff4fb; --soft-border:#ffd2ef; --tile:#f7f2f7;
@@ -41,7 +17,7 @@ body{ margin:0; background:var(--bg); color:var(--ink); }
 .card{ background:var(--card); border:1px solid var(--border); border-radius:16px; padding:20px; box-shadow:0 4px 14px rgba(0,0,0,.05); }
 
 /* Title bar */
-.titlebar{ position:relative; margin-bottom:8px; padding-top:56px; }
+.titlebar{ position:relative; margin-bottom:8px; padding-top:48px; }
 h1{
   font-family:'Sora',system-ui,-apple-system,Segoe UI,Roboto,Arial;
   text-align:center;
@@ -52,19 +28,16 @@ h1{
   -webkit-background-clip:text; background-clip:text; color:transparent;
 }
 
-/* Buttons - CORRIGÉ : uniquement position absolute, pas de float */
-.share-btn, .theme-btn{
-  position:absolute; right:0;
+/* Share button */
+.share-btn{
+  position:absolute;
+  top:0; right:0;
   padding:8px 12px; border:0; border-radius:10px;
   background:linear-gradient(90deg,var(--violet),var(--rose));
   color:#fff; font-weight:700; cursor:pointer;
-  display:inline-flex;
-  align-items:center;
-  height:40px;
-  vertical-align:middle;
+  display:inline-flex; align-items:center;
+  height:40px; vertical-align:middle;
 }
-.share-btn{ top:0; }
-.theme-btn{ top:46px; }
 
 .share-menu{
   position:absolute; right:0; top:42px; background:var(--card);
@@ -161,13 +134,18 @@ input,select{ width:100%; padding:14px 12px; border:1px solid var(--border); bor
   .v-sep{ display:none; }
   .inline{ grid-template-columns:1fr 1fr; gap:8px; }
   .titlebar{ margin-bottom:12px; }
-  .theme-btn{ position:static; top:auto; }
   .lang-switch{ top:-6px; }
 
   html[lang="sv"] .titlebar h1,
   html[lang="fr"] .titlebar h1{
     font-size: clamp(1.6rem, 6vw, 30px);
     line-height:1.1;
+  }
+  
+  /* Learn More mobile margins */
+  #learn-more{
+    margin: 24px -16px 20px -16px !important;
+    padding: 20px 24px !important;
   }
 }
 
@@ -181,41 +159,33 @@ input,select{ width:100%; padding:14px 12px; border:1px solid var(--border); bor
 /* Reset button full width */
 #clear{ padding:12px; font-size:16px; width:100%; }
 
-/* Learn More section - CORRIGÉ : marges ajoutées */
+/* Learn More section */
 #learn-more{
-  margin:32px 0 24px !important;
-  padding:18px 20px !important;
-  border-radius:12px;
-  background:var(--card,#fff);
-  max-width: 100%;
-  box-sizing: border-box;
+  margin: 32px -20px 24px -20px !important;
+  padding: 24px 32px !important;
+  border-radius: 12px;
+  background: var(--soft, #fff4fb);
+  border: 1px solid var(--soft-border, #ffd2ef);
 }
 #learn-more h2{ 
-  margin:0 0 12px; 
-  font-size:24px;
-  font-weight:800;
+  margin: 0 0 16px; 
+  font-size: 24px;
+  font-weight: 800;
 }
 #learn-more h3{ 
-  margin:16px 0 8px; 
-  font-size:18px;
-  font-weight:700;
+  margin: 20px 0 10px; 
+  font-size: 18px;
+  font-weight: 700;
 }
 #learn-more p{ 
-  margin:8px 0; 
-  line-height:1.6;
+  margin: 10px 0; 
+  line-height: 1.7;
 }
 #learn-more ul{ 
-  margin:8px 0 8px 20px; 
-  padding-left:20px;
-  line-height:1.6;
+  margin: 10px 0; 
+  padding-left: 24px;
+  line-height: 1.7;
 }
-
-/* Mobile adjustments for Learn More */
-@media (max-width:560px){
-  #learn-more{
-    padding:16px !important;
-    margin:24px 0 20px !important;
-  }
-  #learn-more h2{ font-size:20px; }
-  #learn-more h3{ font-size:16px; }
+#learn-more ul li{
+  margin: 6px 0;
 }
