@@ -1,736 +1,1047 @@
 <!doctype html>
 <html lang="sv" data-theme="light">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-K1LSD4FW61"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
 
-  gtag('config', 'G-K1LSD4FW61');
-</script>
-<meta charset="utf-8"/>
-<meta name="google-adsense-account" content="ca-pub-4394814091372953">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4394814091372953"
-     crossorigin="anonymous"></script>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <!-- 1. Consent Mode v2 -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
 
-<title>Utdelningskalk. – DRIP, 10-årsprognoser, avkastning</title>
-<meta name="description" content="Utdelningskalkylator på svenska (med DRIP). Beräkna inkomster, avkastning på GAV (yield on cost) och 10-årsprognoser – med eller utan återinvestering av utdelningar.">
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'analytics_storage': 'denied',
+      'personalization_storage': 'denied',
+      'functionality_storage': 'granted',
+      'security_storage': 'granted'
+    });
+  </script>
 
-<!-- HREFLANG (FR, EN, SV + x-default=EN) -->
-<link rel="alternate" hreflang="fr" href="../fr/"/>
-<link rel="alternate" hreflang="en" href="../en/"/>
-<link rel="alternate" hreflang="sv" href="../sv/"/>
-<link rel="alternate" hreflang="x-default" href="../en/"/>
+  <!-- 2. Google tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K1LSD4FW61"></script>
+  <script>
+    gtag('js', new Date());
+    gtag('config', 'G-K1LSD4FW61');
+  </script>
 
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&display=swap');
+  <!-- 3. AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-4394814091372953">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4394814091372953"
+       crossorigin="anonymous"></script>
 
-  :root{
-    --bg:#faf7fb; --card:#fff; --ink:#1f1b24; --muted:#6a6873;
-    --border:#eadcec; --brand:#b40f67; --accent:#079455; --soft:#fff4fb; --soft-border:#ffd2ef; --tile:#f7f2f7;
-    --violet:#7c3aed; --rose:#ff4d94;
-  }
-  @media (prefers-color-scheme: dark){
+  <title>Utdelningskalk. – DRIP, 10-årsprognoser, avkastning</title>
+  <meta name="description" content="Utdelningskalkylator på svenska (med DRIP). Beräkna inkomster, avkastning på GAV (yield on cost) och 10-årsprognoser – med eller utan återinvestering av utdelningar.">
+
+  <!-- HREFLANG -->
+  <link rel="alternate" hreflang="fr" href="../fr/"/>
+  <link rel="alternate" hreflang="en" href="../en/"/>
+  <link rel="alternate" hreflang="sv" href="../sv/"/>
+  <link rel="alternate" hreflang="x-default" href="../en/"/>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&display=swap');
+
     :root{
-      --bg:#151218; --card:#1d1923; --ink:#f6eef8; --muted:#bdb7c4;
-      --border:#3a3241; --brand:#db3e8e; --accent:#41d59b; --soft:#2a2130; --soft-border:#3c2a35; --tile:#241f2a;
-      --violet:#8b5cf6; --rose:#ff6aa8;
+      --bg:#faf7fb; --card:#fff; --ink:#1f1b24; --muted:#6a6873;
+      --border:#eadcec; --brand:#b40f67; --accent:#079455; --soft:#fff4fb; --soft-border:#ffd2ef; --tile:#f7f2f7;
+      --violet:#7c3aed; --rose:#ff4d94;
     }
-  }
-  [data-theme="dark"]{
-    --bg:#151218; --card:#1d1923; --ink:#f6eef8; --muted:#bdb7c4;
-    --border:#3a3241; --brand:#db3e8e; --accent:#41d59b; --soft:#2a2130; --soft-border:#3c2a35; --tile:#241f2a;
-    --violet:#8b5cf6; --rose:#ff6aa8;
-  }
-  [data-theme="light"]{
-    --bg:#faf7fb; --card:#fff; --ink:#1f1b24; --muted:#6a6873;
-    --border:#eadcec; --brand:#b40f67; --accent:#079455; --soft:#fff4fb; --soft-border:#ffd2ef; --tile:#f7f2f7;
-    --violet:#7c3aed; --rose:#ff4d94;
-  }
 
-  *{box-sizing:border-box;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial}
-  body{margin:0;background:var(--bg);color:var(--ink)}
-  .wrap{max-width:860px;margin:28px auto;padding:0 16px}
-  .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 4px 14px rgba(0,0,0,.05)}
-  .titlebar{position:relative; margin-bottom:8px; padding-top:56px;} /* plats för språkväxlaren */
-  h1{
-    font-family:'Sora',system-ui,-apple-system,Segoe UI,Roboto,Arial;
-    text-align:center;
-    font-size:40px;
-    margin:0 0 12px;
-    font-weight:800;
-    background: linear-gradient(90deg,var(--violet),var(--rose));
-    -webkit-background-clip:text; background-clip:text; color:transparent;
-  }
-  .share-btn{
-    position:absolute; right:0; top:0;
-    padding:8px 12px; border:0; border-radius:10px;
-    background:linear-gradient(90deg,var(--violet),var(--rose));
-    color:#fff; font-weight:700; cursor:pointer;
-  }
-  .theme-btn{
-  position:absolute; right:130px; top:0;
-  padding:8px 12px; border:0; border-radius:10px;
-  background:linear-gradient(90deg,var(--violet),var(--rose));
-  color:#fff; font-weight:700; cursor:pointer;
-}
-  .share-menu{
-    position:absolute; right:0; top:42px; background:var(--card); border:1px solid var(--border);
-    border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,.08); padding:8px; display:none; z-index:10; min-width:220px;
-  }
-  .share-menu button, .share-menu a{
-    width:100%; text-align:left; padding:10px 12px; border:0; background:transparent; cursor:pointer;
-    color:var(--ink); border-radius:8px; display:block; text-decoration:none;
-  }
-  .share-menu button:hover, .share-menu a:hover{ background:var(--tile) }
+    *{box-sizing:border-box;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    body{margin:0;background:var(--bg);color:var(--ink)}
+    .wrap{max-width:860px;margin:28px auto;padding:0 16px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 4px 14px rgba(0,0,0,.05)}
+    .titlebar{position:relative; margin-bottom:8px; padding-top:56px;}
 
-  .label{font-size:16px;font-weight:700;color:var(--ink);margin:16px 4px 8px}
-  input,select{width:100%;padding:14px 12px;border:1px solid var(--border);border-radius:10px;font-size:16px;background:var(--card);color:var(--ink)}
-  .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  .btn{
-    margin-top:16px;width:100%;padding:14px;border:0;border-radius:12px;
-    background:linear-gradient(90deg,var(--violet),var(--rose));
-    color:#fff;font-weight:700;font-size:18px;cursor:pointer
-  }
-  .pill{margin-top:16px;background:var(--soft);border:1px solid var(--soft-border);border-radius:12px;padding:16px;text-align:center}
-  .yield{font-size:32px;font-weight:900;color:var(--accent)}
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
-  .kpi{background:var(--tile);border:1px solid var(--border);border-radius:12px;padding:12px}
-  .kpi small{color:var(--ink); font-weight:700;}
-  .kpi b{display:block;font-size:18px;margin-top:4px}
-  .inline{display:grid;grid-template-columns: 1fr 110px 100px;gap:8px;align-items:center}
-  .hint{font-size:12px;color:var(--muted);margin-top:4px}
-  .foot{margin:12px 0;color:var(--muted);font-size:12px;text-align:center}
-  .actions{display:grid; grid-template-columns:1fr; gap:10px; margin-top:16px}
-  .btn-outline{flex:0 0 auto; padding:12px 16px;border-radius:12px;border:1px solid var(--border);background:transparent;color:var(--ink);font-weight:700;cursor:pointer}
-  .pru-line{display:block}
-  .section-title{
-    margin-top:36px; margin-bottom:12px; font-weight:800; letter-spacing:.2px;
-    color:var(--ink);
-  }
-  .violet-title{
-    font-family:'Sora',system-ui,-apple-system,Segoe UI,Roboto,Arial;
-    text-align:center; color:var(--violet); font-weight:800; letter-spacing:.2px;
-    margin:10px 0;
-  }
-  .proj-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-  .proj-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  .tbl{width:100%; border-collapse:collapse; margin-top:12px; font-size:14px}
-  .tbl th,.tbl td{border:1px solid var(--border); padding:10px; text-align:right}
-  .tbl th{text-align:left; background:var(--tile)}
-  .chart-card{margin-top:16px}
-  .pill-grid{display:grid;grid-template-columns:2fr 2px 1fr;gap:12px;align-items:stretch}
-  .v-sep{width:2px; background:var(--rose); border-radius:1px}
-  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:14px}
-  .tip{display:inline-flex; align-items:center; gap:6px}
-  .info{
-    display:inline-block; width:18px; height:18px; line-height:18px; text-align:center;
-    border-radius:50%; background:var(--tile); border:1px solid var(--border); font-size:12px; cursor:help; position:relative;
-  }
-  .info:hover .tiptext{opacity:1; visibility:visible; transform:translateY(0)}
-  .tiptext{
-    position:absolute; left:50%; top:-8px; transform:translate(-50%,-8px);
-    background:var(--card); color:var(--ink); border:1px solid var(--border);
-    border-radius:8px; padding:8px 10px; font-size:12px; line-height:1.3; white-space:normal; width:240px;
-    opacity:0; visibility:hidden; transition:.15s ease; z-index:20; box-shadow:0 8px 20px rgba(0,0,0,.08)
-  }
-  .proj-actions{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px}
-  .drip-note{margin-top:8px; font-size:12px; color:var(--muted); text-align:center}
-  .summary{margin-top:8px; font-size:14px; color:var(--ink); text-align:center}
-  .pill-grid > div:first-child{ text-align:center }
-  .kpi-cost{ text-align:center }
-  .kpi-cost small{ font-size:16px }
-  .kpi-cost b{ font-size:28px; margin-top:6px }
-  .lang-switch{position:absolute; left:0; top:0; display:flex; gap:8px; font-weight:700; font-size:14px}
-  .lang-switch a{ color:var(--ink); text-decoration:none; padding:6px 8px; border-radius:8px; border:1px solid var(--border); background:var(--card)}
-  .lang-switch .active{ background:var(--tile) }
+    h1{
+      font-family:'Sora',system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      text-align:center;
+      font-size:40px;
+      margin:0 0 12px;
+      font-weight:800;
+      background: linear-gradient(90deg,var(--violet),var(--rose));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
 
-  @media (max-width: 560px){
-    .row, .grid, .grid3, .proj-grid, .proj-grid-2, .pill-grid{grid-template-columns:1fr!important}
-    .v-sep{display:none}
-    .inline{grid-template-columns:1fr 1fr; gap:8px}
-    .titlebar{margin-bottom:12px}
-    .theme-btn{ top:48px; }
-    .lang-switch{ top:-6px; }
-  }
+    .seo-tagline{text-align:center;color:var(--muted);font-size:14px;margin-top:8px;}
 
-  @media print{ .chart-card{display:none!important} .wrap{margin:0;padding:0} .card{border:none;box-shadow:none} }
-  #clear{padding:12px;font-size:16px;width:100%}
-</style>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    .share-btn{
+      position:absolute; right:0; top:0;
+      padding:8px 12px; border:0; border-radius:10px;
+      background:linear-gradient(90deg,var(--violet),var(--rose));
+      color:#fff; font-weight:700; cursor:pointer;
+    }
+
+    .share-menu{
+      position:absolute; right:0; top:42px; background:var(--card); border:1px solid var(--border);
+      border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,.08); padding:8px; display:none; z-index:10; min-width:220px;
+    }
+    .share-menu button, .share-menu a{
+      width:100%; text-align:left; padding:10px 12px; border:0; background:transparent; cursor:pointer;
+      color:var(--ink); border-radius:8px; display:block; text-decoration:none;
+    }
+    .share-menu button:hover, .share-menu a:hover{ background:var(--tile) }
+
+    .label{font-size:16px;font-weight:700;color:var(--ink);margin:16px 4px 8px}
+    input,select{
+      width:100%;
+      padding:14px 12px;
+      border:1px solid var(--border);
+      border-radius:10px;
+      font-size:16px;
+      background:var(--card);
+      color:var(--ink)
+    }
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .btn{
+      margin-top:16px;width:100%;padding:14px;border:0;border-radius:12px;
+      background:linear-gradient(90deg,var(--violet),var(--rose));
+      color:#fff;font-weight:700;font-size:18px;cursor:pointer
+    }
+
+    .pill{
+      margin-top:16px;
+      background:var(--soft);
+      border:1px solid var(--soft-border);
+      border-radius:12px;
+      padding:16px;
+      text-align:center
+    }
+    .yield{font-size:32px;font-weight:900;color:var(--accent)}
+
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+    .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:14px}
+
+    .kpi{
+      background:var(--tile);
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:12px
+    }
+    .kpi small{color:var(--ink); font-weight:700;}
+    .kpi b{display:block;font-size:18px;margin-top:4px}
+
+    .inline{
+      display:grid;
+      grid-template-columns: 1fr 110px 100px;
+      gap:8px;
+      align-items:center
+    }
+
+    .hint{font-size:12px;color:var(--muted);margin-top:4px}
+
+    .foot{
+      margin:12px 0;
+      color:var(--muted);
+      font-size:12px;
+      text-align:center
+    }
+
+    .actions{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:10px;
+      margin-top:16px
+    }
+
+    .section-title{
+      margin-top:36px;
+      margin-bottom:12px;
+      font-weight:800;
+      letter-spacing:.2px;
+      color:var(--ink);
+    }
+
+    .violet-title{
+      font-family:'Sora',system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      text-align:center;
+      color:var(--violet);
+      font-weight:800;
+      letter-spacing:.2px;
+      margin:10px 0;
+    }
+
+    .proj-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+    .tbl{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:12px;
+      font-size:14px
+    }
+    .tbl th,.tbl td{
+      border:1px solid var(--border);
+      padding:10px;
+      text-align:right
+    }
+    .tbl th{
+      text-align:left;
+      background:var(--tile)
+    }
+
+    .chart-card{margin-top:16px}
+
+    .pill-grid{
+      display:grid;
+      grid-template-columns:2fr 2px 1fr;
+      gap:12px;
+      align-items:stretch
+    }
+    .pill-grid > div:first-child{ text-align:center }
+    .v-sep{
+      width:2px;
+      background:var(--rose);
+      border-radius:1px
+    }
+
+    .kpi-cost{ text-align:center }
+    .kpi-cost small{ font-size:16px }
+    .kpi-cost b{ font-size:28px; margin-top:6px }
+
+    .tip{display:inline-flex; align-items:center; gap:6px}
+    .info{
+      display:inline-block;
+      width:18px;
+      height:18px;
+      line-height:18px;
+      text-align:center;
+      border-radius:50%;
+      background:var(--tile);
+      border:1px solid var(--border);
+      font-size:12px;
+      cursor:help;
+      position:relative;
+    }
+    .info:hover .tiptext{opacity:1; visibility:visible; transform:translateY(0)}
+    .tiptext{
+      position:absolute;
+      left:50%;
+      top:-8px;
+      transform:translate(-50%,-8px);
+      background:var(--card);
+      color:var(--ink);
+      border:1px solid var(--border);
+      border-radius:8px;
+      padding:8px 10px;
+      font-size:12px;
+      line-height:1.3;
+      white-space:normal;
+      width:240px;
+      opacity:0;
+      visibility:hidden;
+      transition:.15s ease;
+      z-index:20;
+      box-shadow:0 8px 20px rgba(0,0,0,.08)
+    }
+
+    .proj-actions{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin-top:12px
+    }
+
+    .drip-note{
+      margin-top:8px;
+      font-size:12px;
+      color:var(--muted);
+      text-align:center
+    }
+    .summary{
+      margin-top:8px;
+      font-size:14px;
+      color:var(--ink);
+      text-align:center
+    }
+    #diffSummary.summary { min-height:1.4em; }
+
+    .lang-switch{
+      position:absolute;
+      left:0;
+      top:0;
+      display:flex;
+      gap:8px;
+      font-weight:700;
+      font-size:14px
+    }
+    .lang-switch a{
+      color:var(--ink);
+      text-decoration:none;
+      padding:6px 8px;
+      border-radius:8px;
+      border:1px solid var(--border);
+      background:var(--card)
+    }
+    .lang-switch .active{ background:var(--tile) }
+
+    #cookieBanner{
+      position:fixed;
+      bottom:0;
+      left:0;
+      right:0;
+      background:#1f1b24;
+      color:#fff;
+      padding:16px;
+      box-shadow:0 -4px 12px rgba(0,0,0,0.3);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
+      z-index:9999;
+      display:none;
+      font-size:14px;
+      line-height:1.4;
+    }
+    #cookieInner{
+      max-width:900px;
+      margin:0 auto;
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      align-items:flex-start;
+      justify-content:space-between;
+    }
+    #cookieText{
+      flex:1 1 240px;
+      min-width:240px;
+    }
+    #cookieBtns{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      min-width:160px;
+    }
+    #acceptCookies{
+      background:linear-gradient(90deg,#7c3aed,#ff4d94);
+      border:none;
+      color:#fff;
+      font-weight:600;
+      border-radius:8px;
+      padding:10px 14px;
+      cursor:pointer;
+      font-size:14px;
+    }
+    #rejectCookies{
+      background:#fff;
+      border:1px solid #eadcec;
+      color:#1f1b24;
+      font-weight:600;
+      border-radius:8px;
+      padding:10px 14px;
+      cursor:pointer;
+      font-size:14px;
+    }
+    #cookieText a{
+      color:#ff4d94;
+      text-decoration:underline;
+    }
+
+    .content-block{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:24px;
+      margin-top:24px;
+    }
+    .content-block h2{
+      color:var(--violet);
+      font-family:'Sora',sans-serif;
+      margin-top:0;
+    }
+    .content-block h3{
+      color:var(--ink);
+      margin-top:20px;
+    }
+    .content-block ul{
+      line-height:1.6;
+    }
+
+    @media (max-width: 560px){
+      .row,
+      .grid,
+      .grid3,
+      .proj-grid-2,
+      .pill-grid{
+        grid-template-columns:1fr!important
+      }
+      .v-sep{display:none}
+      .inline{grid-template-columns:1fr 1fr; gap:8px}
+      .titlebar{margin-bottom:12px}
+      .lang-switch{ top:-6px; }
+    }
+
+    @media print{
+      .chart-card{display:none!important}
+      .wrap{margin:0;padding:0}
+      .card{border:none;box-shadow:none}
+    }
+
+    #clear{
+      padding:12px;
+      font-size:16px;
+      width:100%
+    }
+  </style>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
+
 <body>
-<div class="wrap">
 
-  <div class="card">
-    <div class="titlebar">
-      <h1>Utdelningskalkylator</h1>
-
-      <p class="seo-tagline">
-  Beräkna dina utdelningar, avkastning och effekten av återinvestering (DRIP) på din passiva inkomst.
-</p>
-      <!-- Språkväxlare (relativa länkar) -->
-      <nav class="lang-switch" aria-label="Språkväxlare">
-        <a href="../fr/" lang="fr">FR</a>
-        <a href="../en/" lang="en">EN</a>
-        <a class="active" href="../sv/" lang="sv" aria-current="page">SV</a>
-      </nav>
-
-      <!-- Dela-knapp -->
-      <button class="share-btn" id="shareBtn">Dela</button>
-      <!-- Ljus/Mörk under Dela -->
-
-      <div class="share-menu" id="shareMenu">
-        <button id="copyLink">Kopiera länk</button>
-        <a id="shareEmail" href="#" target="_blank" rel="noopener">Dela via e-post</a>
-        <a id="shareFB" href="#" target="_blank" rel="noopener">Dela på Facebook</a>
-        <button id="shareIG">Dela på Instagram</button>
-        <a id="shareX" href="#" target="_blank" rel="noopener">Dela på X</a>
-        <button id="exportCSV">Exportera tabell (CSV)</button>
+  <!-- Cookie banner -->
+  <div id="cookieBanner">
+    <div id="cookieInner">
+      <div id="cookieText">
+        <strong>Cookies & integritet</strong><br>
+        Vi använder cookies för analys och för att visa annonser. Om du accepterar kan annonser bli mer relevanta.
+        Om du nekar visar vi bara icke-personanpassade annonser (mindre spårning).
+        <br>
+        <a href="/policy.html" rel="nofollow">Läs mer</a>
       </div>
-
-      <!--
-        [ADS_TOP] Banner 728x90 eller responsiv (placeholder)
-        <div id="ads-top"></div>
-      -->
-    </div>
-
-    <!-- ==== KATEGORI 1 : Huvud-inmatningar ==== -->
-    <div class="row">
-      <div>
-        <div class="label">Antal aktier</div>
-        <input id="shares" type="number" inputmode="decimal" value="100">
-      </div>
-      <div>
-        <div class="label">Genomsnittligt inköpspris (GAV)</div>
-        <div class="pru-line">
-          <input id="pru" type="number" inputmode="decimal" placeholder="t.ex. 200">
-        </div>
+      <div id="cookieBtns">
+        <button id="acceptCookies">Acceptera allt</button>
+        <button id="rejectCookies">Neka riktad reklam</button>
       </div>
     </div>
+  </div>
 
-    <!-- Avkastning på GAV + Utdelningsbelopp -->
-    <div class="row">
-      <div>
-        <div class="label tip" style="justify-content:center;">
-          Avkastning på GAV (yield on cost)
-          <span class="info">ⓘ
-            <span class="tiptext">Utdelning per aktie ÷ GAV × 100. Din avkastning baserad på vad du betalade.</span>
-          </span>
+  <div class="wrap">
+
+    <div class="card">
+      <div class="titlebar">
+        <h1>Kalkylator</h1>
+
+        <p class="seo-tagline">
+          Beräkna dina utdelningar, avkastning och effekten av återinvestering (DRIP) på din passiva inkomst.
+        </p>
+
+        <!-- Language switcher -->
+        <nav class="lang-switch" aria-label="Språkväxlare">
+          <a href="../fr/" lang="fr">FR</a>
+          <a href="../en/" lang="en">EN</a>
+          <a class="active" href="../sv/" lang="sv" aria-current="page">SV</a>
+        </nav>
+
+        <!-- Share button -->
+        <button class="share-btn" id="shareBtn">Dela</button>
+
+        <div class="share-menu" id="shareMenu">
+          <button id="copyLink">Kopiera länk</button>
+          <a id="shareEmail" href="#" target="_blank" rel="noopener">Dela via e-post</a>
+          <a id="shareFB" href="#" target="_blank" rel="noopener">Dela på Facebook</a>
+          <button id="shareIG">Dela på Instagram</button>
+          <a id="shareX" href="#" target="_blank" rel="noopener">Dela på X</a>
+          <button id="exportCSV">Exportera tabell (CSV)</button>
         </div>
-        <input id="currentPrice" type="number" inputmode="decimal" placeholder="t.ex. 215">
       </div>
-      <div>
-        <div class="label">Utdelningsbelopp</div>
-        <div class="inline">
-          <select id="dMode">
-            <option value="amount" selected>Belopp</option>
-            <option value="percent">%</option>
-          </select>
-          <input id="dVal" type="number" inputmode="decimal" value="4">
-        </div>
-        <div class="hint" id="dHint" style="display:none"></div>
-      </div>
-    </div>
 
-    <button class="btn" id="calc">Beräkna</button>
-
-    <!-- ==== KATEGORI 2 : KPI:er och aktuellt pris ==== -->
-    <div class="pill">
-      <div class="pill-grid">
+      <!-- Inputs -->
+      <div class="row">
         <div>
-          <div class="violet-title tip" style="justify-content:center;">
-            Avkastning på GAV (yield on cost)
+          <div class="label">Antal aktier</div>
+          <input id="shares" type="number" inputmode="decimal" value="100" step="any">
+        </div>
+        <div>
+          <div class="label">Genomsnittligt inköpspris (GAV)</div>
+          <input id="pru" type="number" inputmode="decimal" placeholder="t.ex. 200" step="any">
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <div class="label tip" style="justify-content:center;">
+            Aktuellt pris
             <span class="info">ⓘ
-              <span class="tiptext">Avkastning baserad på ditt GAV, inte på aktuellt pris.</span>
+              <span class="tiptext">Aktuellt marknadspris per aktie (valfritt).</span>
             </span>
           </div>
-          <div class="yield" id="yieldOnCost">—</div>
-          <div class="hint" id="yocRef"></div>
+          <input id="currentPrice" type="number" inputmode="decimal" placeholder="t.ex. 215" step="any">
         </div>
-        <div class="v-sep" aria-hidden="true"></div>
-        <div class="kpi kpi-cost">
-          <small>Total investering</small><b id="cost">—</b>
+        <div>
+          <div class="label">Utdelningsbelopp</div>
+          <div class="inline">
+            <select id="dMode">
+              <option value="amount" selected>Belopp</option>
+              <option value="percent">%</option>
+            </select>
+            <input id="dVal" type="number" inputmode="decimal" value="4" step="any">
+          </div>
+          <div class="hint" id="dHint" style="display:none"></div>
         </div>
       </div>
-    </div>
 
-    <div class="grid3">
-      <div class="kpi"><small>Månatlig utdelning</small><b id="monthly">—</b></div>
-      <div class="kpi"><small>Kvartalsutdelning</small><b id="quarterly">—</b></div>
-      <div class="kpi"><small>Total årlig utdelning</small><b id="annual">—</b></div>
-    </div>
+      <button class="btn" id="calc">Beräkna</button>
 
-    <div class="pill" id="currentBlock" style="display:none; margin-top:16px;">
-      <div class="grid" style="margin-top:10px;">
+      <!-- KPIs -->
+      <div class="pill">
+        <div class="pill-grid">
+          <div>
+            <div class="violet-title tip" style="justify-content:center;">
+              Avkastning på GAV (yield on cost)
+              <span class="info">ⓘ
+                <span class="tiptext">Avkastning baserad på ditt GAV, inte på aktuellt pris.</span>
+              </span>
+            </div>
+            <div class="yield" id="yieldOnCost">—</div>
+            <div class="hint" id="yocRef"></div>
+          </div>
+
+          <div class="v-sep" aria-hidden="true"></div>
+
+          <div class="kpi kpi-cost">
+            <small>Total investering</small>
+            <b id="cost">—</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid3">
+        <div class="kpi"><small>Månatlig utdelning</small><b id="monthly">—</b></div>
+        <div class="kpi"><small>Kvartalsutdelning</small><b id="quarterly">—</b></div>
+        <div class="kpi"><small>Total årlig utdelning</small><b id="annual">—</b></div>
+      </div>
+
+      <div class="pill" id="currentBlock" style="display:none; margin-top:16px;">
+        <div class="grid" style="margin-top:10px;">
+          <div class="kpi">
+            <small class="tip">Aktuell direktavkastning
+              <span class="info">ⓘ
+                <span class="tiptext">Utdelning per aktie ÷ aktuellt pris × 100.</span>
+              </span>
+            </small>
+            <b id="currentYield">—</b>
+          </div>
+          <div class="kpi">
+            <small class="tip">Orealiserad vinst/förlust
+              <span class="info">ⓘ
+                <span class="tiptext">Orealiserad vinst/förlust = positionens värde − totalt kostnadsbelopp.</span>
+              </span>
+            </small>
+            <b id="plAmount">—</b>
+          </div>
+          <div class="kpi">
+            <small class="tip">V/F (%)
+              <span class="info">ⓘ
+                <span class="tiptext">((Aktuellt pris − GAV) ÷ GAV) × 100.</span>
+              </span>
+            </small>
+            <b id="plPct">—</b>
+          </div>
+          <div class="kpi"><small>Positionens värde</small><b id="mktValue">—</b></div>
+        </div>
+      </div>
+
+      <!-- 10-year projections -->
+      <h3 class="section-title violet-title" style="margin-top:56px;">Prognoser över 10 år</h3>
+
+      <div class="proj-grid-2">
         <div class="kpi">
-          <small class="tip">Aktuell direktavkastning
-            <span class="info">ⓘ
-              <span class="tiptext">Utdelning per aktie ÷ aktuellt pris × 100.</span>
-            </span>
-          </small>
-          <b id="currentYield">—</b>
+          <small>Utdelningstillväxt (%/år)</small>
+          <b>
+            <input id="divGrowth" type="number" inputmode="decimal" value="3" style="width:100%;margin-top:8px;" step="any">
+          </b>
         </div>
         <div class="kpi">
-          <small class="tip">Orealiserad vinst/förlust
-            <span class="info">ⓘ
-              <span class="tiptext">Orealiserad vinst/förlust = positionens värde − totalt kostnadsbelopp.</span>
-            </span>
-          </small>
-          <b id="plAmount">—</b>
+          <small>Pristillväxt (%/år)</small>
+          <b>
+            <input id="priceGrowth" type="number" inputmode="decimal" value="0" style="width:100%;margin-top:8px;" step="any">
+          </b>
+        </div>
+      </div>
+
+      <div class="proj-grid-2" style="margin-top:12px;">
+        <div class="kpi">
+          <small>Extra investering:</small>
+          <b>
+            <input id="extraInvestment" type="number" inputmode="decimal" placeholder="t.ex. 100" style="width:100%;margin-top:8px;" step="any">
+          </b>
         </div>
         <div class="kpi">
-          <small class="tip">V/F (%)
-            <span class="info">ⓘ
-              <span class="tiptext">((Aktuellt pris − GAV) ÷ GAV) × 100.</span>
-            </span>
-          </small>
-          <b id="plPct">—</b>
+          <small>Investeringsfrekvens:</small>
+          <b>
+            <select id="extraInvestFreq" style="width:100%;margin-top:8px;">
+              <option value="monthly" selected>Månadsvis</option>
+              <option value="quarterly">Kvartalsvis</option>
+              <option value="yearly">Årligen</option>
+              <option value="once">Engångsbelopp</option>
+            </select>
+          </b>
         </div>
-        <div class="kpi"><small>Positionens värde</small><b id="mktValue">—</b></div>
       </div>
-    </div>
 
-    <!-- ==== KATEGORI 3 : Prognoser över 10 år ==== -->
-    <h3 class="section-title violet-title" style="margin-top:56px;">Prognoser över 10 år</h3>
-
-    <div class="proj-grid-2">
-      <div class="kpi">
-        <small>Utdelningstillväxt (%/år)</small>
-        <b>
-          <input id="divGrowth" type="number" inputmode="decimal" value="3" style="width:100%;margin-top:8px;">
-        </b>
+      <div class="proj-actions">
+        <button class="btn" id="calcProj">UTAN DRIP</button>
+        <button class="btn" id="calcProjDrip">MED DRIP</button>
       </div>
-      <div class="kpi">
-        <small>Pristillväxt (%/år)</small>
-        <b>
-          <input id="priceGrowth" type="number" inputmode="decimal" value="0" style="width:100%;margin-top:8px;">
-        </b>
+
+      <div class="drip-note tip">
+        DRIP = Dividend Reinvestment Plan (återinvestering av utdelningar)
+        <span class="info">ⓘ
+          <span class="tiptext">Med DRIP används utdelningarna för att automatiskt köpa fler aktier till det prognostiserade priset, vilket ökar antalet aktier över tid.</span>
+        </span>
       </div>
-    </div>
 
-    <div class="proj-grid-2" style="margin-top:12px;">
-      <div class="kpi">
-        <small>Extra investering:</small>
-        <b>
-          <input id="extraInvestment" type="number" inputmode="decimal" placeholder="t.ex. 100" style="width:100%;margin-top:8px;">
-        </b>
+      <div id="summary" class="summary">
+        Efter 10 år uppgår dina ackumulerade utdelningar till — €, vilket motsvarar en total tillväxt på — %.
       </div>
-      <div class="kpi">
-        <small>Investeringsfrekvens:</small>
-        <b>
-          <select id="extraInvestFreq" style="width:100%;margin-top:8px;">
-            <option value="monthly" selected>Månadsvis</option>
-            <option value="quarterly">Kvartalsvis</option>
-            <option value="yearly">Årligen</option>
-            <option value="once">Engångsbelopp</option>
-          </select>
-        </b>
+      <div id="diffSummary" class="summary"></div>
+
+      <div class="card chart-card" style="padding:16px; margin-top:16px;">
+        <canvas id="projChart" height="140"></canvas>
       </div>
+
+      <table class="tbl" id="resultTable">
+        <thead>
+          <tr>
+            <th style="text-align:left">År</th>
+            <th>Utdelningar</th>
+            <th>Avkastning (%)</th>
+            <th>Antal aktier</th>
+            <th>Portföljvärde</th>
+          </tr>
+        </thead>
+        <tbody id="resultBody"></tbody>
+      </table>
     </div>
 
-    <div class="proj-actions">
-      <button class="btn" id="calcProj">UTAN DRIP</button>
-      <button class="btn" id="calcProjDrip">MED DRIP</button>
-    </div>
-    <div class="drip-note tip">
-      DRIP = Dividend Reinvestment Plan (återinvestering av utdelningar)
-      <span class="info">ⓘ
-        <span class="tiptext">Med DRIP används utdelningarna för att automatiskt köpa fler aktier till det prognostiserade priset, vilket ökar antalet aktier över tid.</span>
-      </span>
+    <div class="actions">
+      <button class="btn" id="clear">Återställ</button>
     </div>
 
-    <div id="summary" class="summary">Efter 10 år uppgår dina ackumulerade utdelningar till — €, vilket motsvarar en total tillväxt på — %.</div>
-    <div id="diffSummary" class="summary"></div>
-
-    <div class="card chart-card" style="padding:16px; margin-top:16px;">
-      <canvas id="projChart" height="140"></canvas>
+    <div class="foot">
+      ⚠️ Vägledande uppskattningar. Utdelningar och priser kan variera.
     </div>
+  </div>
 
-    <table class="tbl" id="resultTable">
-      <thead>
-        <tr>
-          <th style="text-align:left">År</th>
-          <th>Utdelningar</th>
-          <th>Avkastning (%)</th>
-          <th>Antal aktier</th>
-          <th>Portföljvärde</th>
-        </tr>
-      </thead>
-      <tbody id="resultBody"></tbody>
-    </table>
+  <!-- Editorial content -->
+  <section id="learn-more" class="content-block" style="max-width:860px;margin:28px auto;padding:0 16px;">
+    <div class="card">
+      <h2>Lär dig allt om återinvestering av utdelningar (DRIP)</h2>
+      <p><strong>DRIP</strong> använder automatiskt utdelningen för att köpa fler aktier i samma bolag – ränta-på-ränta-effekt över tid.</p>
 
-    <!--
-      [ADS_MID] Rektangel 300x250 / 336x280 / responsiv
-      <div id="ads-mid"></div>
-    -->
+      <h3>Enkelt exempel</h3>
+      <p>Investera 10 000 € i en aktie med <strong>4 % utdelning</strong> och återinvestera varje utbetalning:
+         kapital och utdelningar växer mekaniskt även om du inte sätter in mer pengar.</p>
 
-    <!--
-      [AFFILIATES]
+      <h3>Fördelar</h3>
       <ul>
-        <li><a href="#" rel="nofollow sponsored">Mäklare A – Utdelningskonto</a></li>
-        <li><a href="#" rel="nofollow sponsored">Verktyg B – Portföljspårning</a></li>
-        <li><a href="#" rel="nofollow sponsored">Bok C – Investera i utdelningar</a></li>
+        <li><strong>Sammanlagd tillväxt:</strong> utdelningen jobbar åt dig.</li>
+        <li><strong>Effektivitet:</strong> automatisk återköp utan manuell stress.</li>
+        <li><strong>Disciplin:</strong> du försöker inte längre tajma marknaden, du köper regelbundet.</li>
+        <li><strong>Lång horisont:</strong> störst effekt efter flera år, inte veckor.</li>
       </ul>
-    -->
-  </div>
 
-  <div class="actions">
-    <button class="btn" id="clear">Återställ</button>
-  </div>
+      <h3>Risker</h3>
+      <p>Kursfall, utdelningssänkningar, bolagsrisk. Sprid risken. Ha en plan om bolaget halverar utdelningen.</p>
 
-  <!--
-    [ADS_FOOT] Banner 728x90 / responsiv
-    <div id="ads-foot"></div>
-  -->
+      <h3>Så använder du kalkylatorn</h3>
+      <p>Fyll i dina siffror. Jämför <strong>UTAN DRIP</strong> och <strong>MED DRIP</strong>.
+         Tabellen visar år för år hur många aktier du äger, hur mycket utdelning du får och hur portföljvärdet utvecklas.</p>
 
-  <div class="foot">⚠️ Vägledande uppskattningar. Utdelningar och priser kan variera.</div>
-</div>
+      <p class="disclaimer" style="font-size:12px;color:#6a6873;">
+        Verktyget är utbildningsmaterial. Ej personligt investeringsråd.
+      </p>
+    </div>
+  </section>
 
-<script>
-const $ = id => document.getElementById(id);
-const fmtNum = x => isNaN(x)?'—':new Intl.NumberFormat('sv-SE',{maximumFractionDigits:2}).format(x);
-const fmtPct = x => (isNaN(x)||!isFinite(x))?'—':x.toFixed(2)+' %';
+  <script>
+  (function() {
+    'use strict';
 
-const parseNum = (v) => {
-  if (v === null || v === undefined) return NaN;
-  const s = String(v).trim().replace(',', '.');
-  return parseFloat(s);
-};
+    // Helpers
+    const $ = function(id) { return document.getElementById(id); };
+    const fmtNum = function(x) { 
+      return isNaN(x) ? '—' : new Intl.NumberFormat('sv-SE', {maximumFractionDigits: 2}).format(x); 
+    };
+    const fmtPct = function(x) { 
+      return (isNaN(x) || !isFinite(x)) ? '—' : x.toFixed(2) + ' %'; 
+    };
 
-function resolvePRU(pru) { if (!isNaN(pru) && pru>0) return pru; return NaN; }
-function resolveDPS(mode, val, refPrice){
-  if (mode==='amount') return val;
-  if (mode==='percent') return (refPrice>0)? (val/100)*refPrice : NaN;
-  return NaN;
-}
+    const parseNum = function(v) {
+      if (v === null || v === undefined) return NaN;
+      const s = String(v).trim().replace(',', '.');
+      return parseFloat(s);
+    };
 
-function compute(){
-  const s   = parseNum($('shares').value);
-  const pruInput = parseNum($('pru').value);
-  const cur = parseNum($('currentPrice').value);
-  const dMode = $('dMode').value;
-  const dVal  = parseNum($('dVal').value);
+    function resolvePRU(pru) { 
+      if (!isNaN(pru) && pru > 0) return pru; 
+      return NaN; 
+    }
 
-  const pru = resolvePRU(pruInput);
-  const refForPercent = (!isNaN(cur)&&cur>0) ? cur : pru;
-  const dps = resolveDPS(dMode, dVal, refForPercent);
+    function resolveDPS(mode, val, refPrice) {
+      if (mode === 'amount') return val;
+      if (mode === 'percent') return (refPrice > 0) ? (val / 100) * refPrice : NaN;
+      return NaN;
+    }
 
-  $('yocRef').textContent = isNaN(pru) ? "GAV ej angivet." : `Baserat på GAV = ${fmtNum(pru)}`;
+    let projChart;
 
-  let cost = NaN, annual = NaN, yoc = NaN;
-  if (s>0 && !isNaN(pru)) cost = s*pru;
-  if (s>0 && !isNaN(dps)) annual = s*dps;
-  if (!isNaN(pru) && !isNaN(dps)) yoc = (dps/pru)*100;
+    function compute() {
+      const s = parseNum($('shares').value);
+      const pruInput = parseNum($('pru').value);
+      const cur = parseNum($('currentPrice').value);
+      const dMode = $('dMode').value;
+      const dVal = parseNum($('dVal').value);
 
-  $('yieldOnCost').textContent = fmtPct(yoc);
-  $('cost').textContent = fmtNum(cost);
-  $('annual').textContent = fmtNum(annual);
-  $('monthly').textContent = fmtNum(annual/12);
-  $('quarterly').textContent = fmtNum(annual/4);
+      const pru = resolvePRU(pruInput);
+      const refForPercent = (!isNaN(cur) && cur > 0) ? cur : pru;
+      const dps = resolveDPS(dMode, dVal, refForPercent);
 
-  if (!isNaN(cur) && cur>0){
-    const mkt = s*cur;
-    const plAmt = (!isNaN(cost)? mkt - cost : NaN);
-    const plPct = (!isNaN(pru)? ((cur - pru)/pru)*100 : NaN);
-    const curYield = (!isNaN(dps)? (dps/cur)*100 : NaN);
+      $('yocRef').textContent = isNaN(pru) ? "GAV ej angivet." : "Baserat på GAV = " + fmtNum(pru);
 
-    $('currentBlock').style.display = '';
-    $('currentYield').textContent = fmtPct(curYield);
-    $('plAmount').textContent = fmtNum(plAmt);
-    $('plPct').textContent = fmtPct(plPct);
-    $('mktValue').textContent = fmtNum(mkt);
-  } else {
-    $('currentBlock').style.display = 'none';
-  }
+      let cost = NaN, annual = NaN, yoc = NaN;
+      if (s > 0 && !isNaN(pru)) cost = s * pru;
+      if (s > 0 && !isNaN(dps)) annual = s * dps;
+      if (!isNaN(pru) && !isNaN(dps)) yoc = (dps / pru) * 100;
 
-  computeProjections(false);
-  saveToHash();
-}
+      $('yieldOnCost').textContent = fmtPct(yoc);
+      $('cost').textContent = fmtNum(cost);
+      $('annual').textContent = fmtNum(annual);
+      $('monthly').textContent = fmtNum(annual / 12);
+      $('quarterly').textContent = fmtNum(annual / 4);
 
-/* ===== Prognoser (samma logik) ===== */
-let projChart;
-let lastRows = [];
+      if (!isNaN(cur) && cur > 0) {
+        const mkt = s * cur;
+        const plAmt = (!isNaN(cost) ? mkt - cost : NaN);
+        const plPct = (!isNaN(pru) ? ((cur - pru) / pru) * 100 : NaN);
+        const curYield = (!isNaN(dps) ? (dps / cur) * 100 : NaN);
 
-function computeProjections(useDRIP=false){
-  let shares = parseNum($('shares').value);
-  const initShares = isNaN(shares)?0:shares;
+        $('currentBlock').style.display = '';
+        $('currentYield').textContent = fmtPct(curYield);
+        $('plAmount').textContent = fmtNum(plAmt);
+        $('plPct').textContent = fmtPct(plPct);
+        $('mktValue').textContent = fmtNum(mkt);
+      } else {
+        $('currentBlock').style.display = 'none';
+      }
 
-  const dMode = $('dMode').value;
-  const dVal  = parseNum($('dVal').value);
-  const cur = parseNum($('currentPrice').value);
-  const pru = resolvePRU(parseNum($('pru').value));
-  const refForPercent = (!isNaN(cur)&&cur>0) ? cur : pru;
+      computeProjections(false);
+      saveToHash();
+    }
 
-  const dps0 = resolveDPS(dMode, dVal, refForPercent);
-  const initDps = isNaN(dps0)?0:dps0;
+    function computeProjections(useDRIP) {
+      useDRIP = useDRIP || false;
+      let shares = parseNum($('shares').value);
+      const initShares = isNaN(shares) ? 0 : shares;
 
-  const price0Raw = (!isNaN(cur)&&cur>0)? cur : pru;
-  let price = isNaN(price0Raw) ? 0 : price0Raw;
+      const dMode = $('dMode').value;
+      const dVal = parseNum($('dVal').value);
+      const cur = parseNum($('currentPrice').value);
+      const pru = resolvePRU(parseNum($('pru').value));
+      const refForPercent = (!isNaN(cur) && cur > 0) ? cur : pru;
 
-  const gDiv = parseNum($('divGrowth').value||0)/100;
-  const gPrc = parseNum($('priceGrowth').value||0)/100;
+      const dps0 = resolveDPS(dMode, dVal, refForPercent);
+      const initDps = isNaN(dps0) ? 0 : dps0;
 
-  const extra = Math.max(0, parseNum($('extraInvestment').value)||0);
-  const freq  = $('extraInvestFreq').value || 'monthly';
-  const steps = (freq==='monthly') ? 12
-              : (freq==='quarterly') ? 4
-              : (freq==='yearly') ? 1
-              : (freq==='once') ? 1
-              : 0;
-  const rg = (gPrc>0 && steps>0) ? Math.pow(1+gPrc, 1/steps) - 1 : 0;
+      const price0Raw = (!isNaN(cur) && cur > 0) ? cur : pru;
+      let price = isNaN(price0Raw) ? 0 : price0Raw;
 
-  const Y = 10;
+      const gDiv = parseNum($('divGrowth').value || 0) / 100;
+      const gPrc = parseNum($('priceGrowth').value || 0) / 100;
 
-  const labels = [];
-  const divSeries = [];
-  const valSeries = [];
-  const tbody = $('resultBody');
-  tbody.innerHTML = '';
-  lastRows = [];
+      const extra = Math.max(0, parseNum($('extraInvestment').value) || 0);
+      const freq = $('extraInvestFreq').value || 'monthly';
+      const steps = (freq === 'monthly') ? 12
+                  : (freq === 'quarterly') ? 4
+                  : (freq === 'yearly') ? 1
+                  : (freq === 'once') ? 1
+                  : 0;
+      const rg = (gPrc > 0 && steps > 0) ? Math.pow(1 + gPrc, 1 / steps) - 1 : 0;
 
-  let dps = initDps;
-  let totalDiv = 0;
+      const Y = 10;
 
-  for(let y=1; y<=Y; y++){
-    const sharesStart = isNaN(shares)?0:shares;
-    const dividends = sharesStart * dps;
+      const labels = [];
+      const divSeries = [];
+      const valSeries = [];
+      const tbody = $('resultBody');
+      tbody.innerHTML = '';
 
-    let priceInYear = price;
-    if (extra>0 && steps>0 && !(freq==='once' && y>1)){
-      for (let k=0; k<steps; k++){
-        if (priceInYear>0){
-          shares += (extra / priceInYear);
+      let dps = initDps;
+      let totalDiv = 0;
+
+      for (let y = 1; y <= Y; y++) {
+        const sharesStart = isNaN(shares) ? 0 : shares;
+        const dividends = sharesStart * dps;
+
+        let priceInYear = price;
+        if (extra > 0 && steps > 0 && !(freq === 'once' && y > 1)) {
+          for (let k = 0; k < steps; k++) {
+            if (priceInYear > 0) {
+              shares += (extra / priceInYear);
+            }
+            if (rg !== 0) priceInYear *= (1 + rg);
+          }
+          price = priceInYear;
+        } else {
+          price *= (1 + gPrc);
         }
-        if (rg!==0) priceInYear *= (1+rg);
+
+        const valueEnd = (isNaN(shares) ? 0 : shares) * price;
+        const yieldPct = (price > 0 && dps > 0) ? (dps / price) * 100 : NaN;
+
+        if (useDRIP && price > 0) {
+          shares += (dividends / price);
+        }
+
+        labels.push('År ' + y);
+        divSeries.push(dividends);
+        valSeries.push(valueEnd);
+        totalDiv += dividends;
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = '<td style="text-align:left">' + y + '</td>' +
+          '<td>' + fmtNum(dividends) + '</td>' +
+          '<td>' + fmtPct(yieldPct) + '</td>' +
+          '<td>' + fmtNum(shares) + '</td>' +
+          '<td>' + fmtNum(valueEnd) + '</td>';
+        tbody.appendChild(tr);
+
+        dps *= (1 + gDiv);
       }
-      price = priceInYear;
-    } else {
-      price *= (1+gPrc);
-    }
 
-    const valueEnd = (isNaN(shares)?0:shares) * price;
-    const yieldPct = (price>0 && dps>0) ? (dps/price)*100 : NaN;
+      const baseline = initShares * initDps * Y;
+      const growthPct = (baseline > 0) ? ((totalDiv - baseline) / baseline) * 100 : NaN;
+      $('summary').textContent =
+        'Efter 10 år uppgår dina ackumulerade utdelningar till ' + fmtNum(totalDiv) + ' €, ' +
+        'vilket motsvarar en total tillväxt på ' + fmtPct(growthPct) + '.';
 
-    if (useDRIP && price>0){
-      shares += (dividends / price);
-    }
+      // Compare DRIP vs no DRIP
+      let sharesNo = initShares;
+      let dpsNo = initDps;
+      let priceNo = isNaN(price0Raw) ? 0 : price0Raw;
+      let totalDivNo = 0;
 
-    labels.push('År '+y);
-    divSeries.push(dividends);
-    valSeries.push(valueEnd);
-    totalDiv += dividends;
+      for (let y = 1; y <= Y; y++) {
+        const divNo = (isNaN(sharesNo) ? 0 : sharesNo) * dpsNo;
+        totalDivNo += divNo;
 
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td style="text-align:left">${y}</td>
-      <td>${fmtNum(dividends)}</td>
-      <td>${fmtPct(yieldPct)}</td>
-      <td>${fmtNum(shares)}</td>
-      <td>${fmtNum(valueEnd)}</td>
-    `;
-    tbody.appendChild(tr);
-
-    dps *= (1+gDiv);
-  }
-
-  const baseline = initShares * initDps * Y;
-  const growthPct = (baseline>0) ? ((totalDiv - baseline)/baseline)*100 : NaN;
-  $('summary').textContent = `Efter 10 år uppgår dina ackumulerade utdelningar till ${fmtNum(totalDiv)} €, vilket motsvarar en total tillväxt på ${fmtPct(growthPct)}.`;
-
-  let sharesNo = initShares;
-  let dpsNo = initDps;
-  let priceNo = isNaN(price0Raw)?0:price0Raw;
-  let totalDivNo = 0;
-
-  for(let y=1; y<=Y; y++){
-    const divNo = (isNaN(sharesNo)?0:sharesNo) * dpsNo;
-    totalDivNo += divNo;
-
-    let pIn = priceNo;
-    if (extra>0 && steps>0 && !(freq==='once' && y>1)){
-      const rgNo = (gPrc>0 && steps>0) ? Math.pow(1+gPrc, 1/steps) - 1 : 0;
-      for (let k=0; k<steps; k++){
-        if (pIn>0) sharesNo += (extra / pIn);
-        if (rgNo!==0) pIn *= (1+rgNo);
+        let pIn = priceNo;
+        if (extra > 0 && steps > 0 && !(freq === 'once' && y > 1)) {
+          const rgNo = (gPrc > 0 && steps > 0) ? Math.pow(1 + gPrc, 1 / steps) - 1 : 0;
+          for (let k = 0; k < steps; k++) {
+            if (pIn > 0) sharesNo += (extra / pIn);
+            if (rgNo !== 0) pIn *= (1 + rgNo);
+          }
+          priceNo = pIn;
+        } else {
+          priceNo *= (1 + gPrc);
+        }
+        dpsNo *= (1 + gDiv);
       }
-      priceNo = pIn;
-    } else {
-      priceNo *= (1+gPrc);
-    }
-    dpsNo *= (1+gDiv);
-  }
 
-  const diffEl = $('diffSummary');
-  if (useDRIP) {
-    const diffAmt = totalDiv - totalDivNo;
-    const diffPct = (totalDivNo>0)? (diffAmt/totalDivNo)*100 : NaN;
-    diffEl.textContent = `Skillnad: ${diffAmt>=0?'+':''}${fmtNum(diffAmt)} € (${fmtPct(diffPct)}) tack vare återinvestering av utdelningar.`;
-  } else {
-    diffEl.textContent = '';
-  }
+      const diffEl = $('diffSummary');
+      if (useDRIP) {
+        const diffAmt = totalDiv - totalDivNo;
+        const diffPct = (totalDivNo > 0) ? (diffAmt / totalDivNo) * 100 : NaN;
+        diffEl.textContent =
+          'Skillnad: ' + (diffAmt >= 0 ? '+' : '') + fmtNum(diffAmt) + ' € (' + fmtPct(diffPct) + ') ' +
+          'tack vare återinvestering av utdelningar.';
+      } else {
+        diffEl.textContent = '';
+      }
 
-  const ctx = document.getElementById('projChart').getContext('2d');
-  if(projChart) projChart.destroy();
-  projChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels,
-      datasets: [
-        {
-          label: 'Totala utdelningar',
-          data: divSeries,
-          backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--violet').trim(),
-          borderWidth: 0,
-          barPercentage: 0.45,
-          categoryPercentage: 0.7
+      const ctx = document.getElementById('projChart').getContext('2d');
+      if (projChart) projChart.destroy();
+      projChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: 'Totala utdelningar',
+              data: divSeries,
+              backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--violet').trim(),
+              borderWidth: 0,
+              barPercentage: 0.45,
+              categoryPercentage: 0.7
+            },
+            {
+              label: 'Portföljvärde',
+              data: valSeries,
+              backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--rose').trim(),
+              borderWidth: 0,
+              barPercentage: 0.45,
+              categoryPercentage: 0.7
+            }
+          ]
         },
-        {
-          label: 'Portföljvärde',
-          data: valSeries,
-          backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--rose').trim(),
-          borderWidth: 0,
-          barPercentage: 0.45,
-          categoryPercentage: 0.7
+        options: {
+          responsive: true,
+          interaction: { mode: 'index', intersect: false },
+          scales: {
+            y: {
+              beginAtZero: true,
+              ticks: {
+                callback: function(v) { 
+                  return new Intl.NumberFormat('sv-SE', {maximumFractionDigits: 0}).format(v); 
+                }
+              }
+            }
+          },
+          plugins: { legend: { position: 'bottom' } }
         }
-      ]
-    },
-    options: {
-      responsive:true,
-      interaction:{mode:'index', intersect:false},
-      scales:{ y:{beginAtZero:true, ticks:{ callback:(v)=> new Intl.NumberFormat('sv-SE',{maximumFractionDigits:0}).format(v) }}},
-      plugins:{ legend:{ position:'bottom' } }
+      });
     }
-  });
-}
 
-// Tema-växling
+    function saveToHash() {
+      const params = new URLSearchParams({
+        shares: $('shares').value,
+        pru: $('pru').value,
+        current: $('currentPrice').value,
+        dMode: $('dMode').value,
+        dVal: $('dVal').value,
+        gDiv: $('divGrowth').value,
+        gPrc: $('priceGrowth').value
+      });
+      history.replaceState(null, '', '#' + params.toString());
+    }
 
-// Dela + CSV
-function saveToHash(){
-  const params = new URLSearchParams({
-    shares:$('shares').value, pru:$('pru').value,
-    current:$('currentPrice').value, dMode:$('dMode').value, dVal:$('dVal').value,
-    gDiv:$('divGrowth').value, gPrc:$('priceGrowth').value
-  });
-  history.replaceState(null,'','#'+params.toString());
-}
-function loadFromHash(){
-  if(location.hash.length>1){
-    const p = new URLSearchParams(location.hash.slice(1));
-    if(p.get('shares')) $('shares').value = p.get('shares');
-    if(p.get('pru')) $('pru').value = p.get('pru');
-    if(p.get('current')) $('currentPrice').value = p.get('current');
-    if(p.get('dMode')) $('dMode').value = p.get('dMode');
-    if(p.get('dVal')) $('dVal').value = p.get('dVal');
-    if(p.get('gDiv')) $('divGrowth').value = p.get('gDiv');
-    if(p.get('gPrc')) $('priceGrowth').value = p.get('gPrc');
-  }
-}
-const shareBtn = $('shareBtn');
-const shareMenu = $('shareMenu');
-shareBtn.addEventListener('click', ()=>{
-  saveToHash();
-  shareMenu.style.display = (shareMenu.style.display==='block'?'none':'block');
-});
-document.addEventListener('click', (e)=>{
-  if(!shareMenu.contains(e.target) && e.target!==shareBtn){
-    shareMenu.style.display = 'none';
-  }
-});
-$('copyLink').addEventListener('click', ()=>{
-  saveToHash();
-  navigator.clipboard.writeText(location.href).then(()=>{
-    $('copyLink').textContent='Länk kopierad ✅';
-    setTimeout(()=>{$('copyLink').textContent='Kopiera länk'},1200);
-  });
-});
-$('shareEmail').addEventListener('click', (e)=>{
-  e.preventDefault(); saveToHash();
-  const subject = encodeURIComponent('Min utdelningsberäkning');
-  const body = encodeURIComponent(`Här är min länk:\n${location.href}`);
-  location.href = `mailto:?subject=${subject}&body=${body}`;
-});
-$('shareFB').addEventListener('click', (e)=>{
-  e.preventDefault(); saveToHash();
-  const u = encodeURIComponent(location.href);
-  window.open(`https://www.facebook.com/sharer/sharer.php?u=${u}`,'_blank','noopener');
-});
-$('shareIG').addEventListener('click', ()=>{
-  saveToHash();
-  navigator.clipboard.writeText(location.href).then(()=>{
-    alert("Länken är kopierad. Öppna Instagram och klistra in den i din bio eller i ett DM.");
-  });
-});
-$('shareX').addEventListener('click', (e)=>{
-  e.preventDefault(); saveToHash();
-  const text = encodeURIComponent('Min utdelningsberäkning');
-  const url = encodeURIComponent(location.href);
-  window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`,'_blank','noopener');
-});
-$('exportCSV').addEventListener('click', ()=>{
-  // använder senaste projektionen
-  const rows = Array.from(document.querySelectorAll('#resultBody tr')).map(tr => {
-    const tds = tr.querySelectorAll('td');
-    return [tds[0].textContent, tds[1].textContent, tds[2].textContent, tds[3].textContent, tds[4].textContent];
-  });
-  const header = ['År','Utdelningar','Avkastning (%)','Antal aktier','Portföljvärde'];
-  const csv = [header.join(';'), ...rows.map(r => r.join(';'))].join('\n');
-  const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'utdelningar_prognoser.csv';
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
-});
+    function loadFromHash() {
+      if (location.hash.length > 1) {
+        const p = new URLSearchParams(location.hash.slice(1));
+        if (p.get('shares')) $('shares').value = p.get('shares');
+        if (p.get('pru')) $('pru').value = p.get('pru');
+        if (p.get('current')) $('currentPrice').value = p.get('current');
+        if (p.get('dMode')) $('dMode').value = p.get('dMode');
+        if (p.get('dVal')) $('dVal').value = p.get('dVal');
+        if (p.get('gDiv')) $('divGrowth').value = p.get('gDiv');
+        if (p.get('gPrc')) $('priceGrowth').value = p.get('gPrc');
+      }
+    }
 
-$('clear').onclick = ()=>{
-  ['shares','pru','currentPrice','dVal','divGrowth','priceGrowth','extraInvestment'].forEach(id => $(id).value='');
-  $('extraInvestFreq').value='monthly';
-  $('dMode').value='amount';
-  compute();
-};
+    // Share & export
+    const shareBtn = $('shareBtn');
+    const shareMenu = $('shareMenu');
+    shareBtn.addEventListener('click', function() {
+      saveToHash();
+      shareMenu.style.display = (shareMenu.style.display === 'block' ? 'none' : 'block');
+    });
+    
+    document.addEventListener('click', function(e) {
+      if (!shareMenu.contains(e.target) && e.target !== shareBtn) {
+        shareMenu.style.display = 'none';
+      }
+    });
 
-$('calc').addEventListener('click', compute);
-$('calcProj').addEventListener('click', ()=>computeProjections(false));
-$('calcProjDrip').addEventListener('click', ()=>computeProjections(true));
-['shares','pru','currentPrice','dVal','dMode','divGrowth','priceGrowth','extraInvestment','extraInvestFreq']
-  .forEach(id => $(id).addEventListener('change', ()=>{}));
+    $('copyLink').addEventListener('click', function() {
+      saveToHash();
+      navigator.clipboard.writeText(location.href).then(function() {
+        $('copyLink').textContent = 'Länk kopierad ✅';
+        setTimeout(function() { 
+          $('copyLink').textContent = 'Kopiera länk'; 
+        }, 1200);
+      });
+    });
 
-loadFromHash();
-compute();
-</script>
-<section id="learn-more" class="content-block">
-  <h2>Lär dig allt om återinvestering av utdelningar (DRIP)</h2>
-  <p><strong>DRIP</strong> använder automatiskt utdelningen för att köpa fler aktier i samma bolag — ränta-på-ränta-effekt.</p>
+    $('shareEmail').addEventListener('click', function(e) {
+      e.preventDefault();
+      saveToHash();
+      const subject = encodeURIComponent('Min utdelningsberäkning');
+      const body = encodeURIComponent('Här är min länk:\n' + location.href);
+      location.href = 'mailto:?subject=' + subject + '&body=' + body;
+    });
 
-  <h3>Enkel exempel</h3>
-  <p>Investera 10 000 € i en aktie med <strong>4 % utdelning</strong> och återinvestera varje utbetalning:
-     kapital och inkomster växer över tid även utan nytt kapital.</p>
+    $('shareFB').addEventListener('click', function(e) {
+      e.preventDefault();
+      saveToHash();
+      const u = encodeURIComponent(location.href);
+      window.open('https://www.facebook.com/sharer/sharer.php?u=' + u, '_blank', 'noopener');
+    });
 
-  <h3>Fördelar</h3>
-  <ul>
-    <li><strong>Sammanlagd tillväxt</strong></li>
-    <li><strong>Effektivitet</strong></li>
-    <li><strong>Automatisk disciplin</strong></li>
-    <li><strong>Långsiktig fördel</strong></li>
-  </ul>
+    $('shareIG').addEventListener('click', function() {
+      saveToHash();
+      navigator.clipboard.writeText(location.href).then(function() {
+        alert("Länken är kopierad. Öppna Instagram och klistra in den i din bio eller i ett DM.");
+      });
+    });
 
-  <h3>Risker</h3>
-  <p>Kursfall, utdelningssänkningar, marknadskriser. Diversifiera och håll dig till din riskprofil.</p>
+    $('shareX').addEventListener('click', function(e) {
+      e.preventDefault();
+      saveToHash();
+      const text = encodeURIComponent('Min utdelningsberäkning');
+      const url = encodeURIComponent(location.href);
+      window.open('https://twitter.com/intent/tweet?text=' + text + '&url=' + url, '_blank', 'noopener');
+    });
 
-  <h3>Så använder du kalkylatorn</h3>
-  <p>Fyll i värden, jämför <strong>MED DRIP</strong> och <strong>UTAN DRIP</strong>. Diagram och summering visar effekten.</p>
+    $('exportCSV').addEventListener('click', function() {
+      const rows = Array.from(document.querySelectorAll('#resultBody tr')).map(function(tr) {
+        const tds = tr.querySelectorAll('td');
+        return [
+          tds[0].textContent,
+          tds[1].textContent,
+          tds[2].textContent,
+          tds[3].textContent,
+          tds[4].textContent
+        ];
+      });
+      const header = ['År', 'Utdelningar', 'Avkastning (%)', 'Antal aktier', 'Portföljvärde'];
+      const csv = [header.join(';')].concat(rows.map(function(r) { return r.join(';'); })).join('\n');
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'utdelningar_prognoser.csv';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
 
-  <p class="disclaimer">Pedagogiskt verktyg — inte investeringsråd.</p>
-</section>
+    $('clear').onclick = function() {
+      ['shares', 'pru', 'currentPrice', 'dVal', 'divGrowth', 'priceGrowth', 'extraInvestment'].forEach(function(id) {
+        $(id).value = '';
+      });
+      $('extraInvestFreq').value = 'monthly';
+      $('dMode').value = 'amount';
+      compute();
+    };
+
+    $('calc').addEventListener('click', compute);
+    $('calcProj').addEventListener('click', function() { computeProjections(false); });
+    $('calcProjDrip').addEventListener('click', function() { computeProjections(true); });
+
+    ['shares', 'pru', 'currentPrice', 'dVal', 'dMode', 'divGrowth', 'priceGrowth', 'extraInvestment', 'extraInvestFreq']
+      .forEach(function(id) {
+        $(id).addEventListener('change', function() {});
+      });
+
+    // Cookie consent
+    (function() {
+      const STORAGE_KEY = 'userConsentAds';
+
+      function setConsent(status) {
+        gtag('consent', 'update', {
+          'ad_storage': status,
+          'analytics_storage': status,
+          'personalization_storage': status
+        });
+        localStorage.setItem(STORAGE_KEY, status);
+      }
+
+      const existing = localStorage.getItem(STORAGE_KEY);
+
+      if (!existing) {
+        document.getElementById('cookieBanner').style.display = 'block';
+      } else {
+        setConsent(existing);
+      }
+
+      document.getElementById('acceptCookies').addEventListener('click', function() {
+        setConsent('granted');
+        document.getElementById('cookieBanner').style.display = 'none';
+      });
+
+      document.getElementById('rejectCookies').addEventListener('click', function() {
+        setConsent('denied');
+        document.getElementById('cookieBanner').style.display = 'none';
+      });
+    })();
+
+    // Initialize
+    loadFromHash();
+    compute();
+  })();
+  </script>
 
 </body>
 </html>
