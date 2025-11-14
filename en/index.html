@@ -1,7 +1,7 @@
 <!doctype html>
-<html lang="fr" data-theme="light">
+<html lang="en" data-theme="light">
 <head>
-  <!-- 1. Consent Mode v2 : par défaut on refuse la publicité ciblée -->
+  <!-- 1. Consent Mode v2: by default we refuse personalized advertising -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
@@ -30,14 +30,14 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
 
-  <title>Calculatrice de dividendes – DRIP, projections 10 ans, rendement</title>
-  <meta name="description" content="Calculatrice de dividendes en français (DRIP inclus). Estimez vos revenus, rendement sur PRU, projections sur 10 ans, avec ou sans réinvestissement des dividendes.">
+  <title>Dividend Calculator – DRIP, 10-Year Projections, Yield</title>
+  <meta name="description" content="Dividend calculator in English (includes DRIP). Estimate income, yield on cost, and 10-year projections with or without dividend reinvestment.">
 
   <!-- HREFLANG -->
-  <link rel="alternate" hreflang="fr" href="../fr/"/>
-  <link rel="alternate" hreflang="en" href="../en/"/>
-  <link rel="alternate" hreflang="sv" href="../sv/"/>
-  <link rel="alternate" hreflang="x-default" href="../en/"/>
+  <link rel="alternate" hreflang="fr" href="/fr/">
+  <link rel="alternate" hreflang="en" href="/en/">
+  <link rel="alternate" hreflang="sv" href="/sv/">
+  <link rel="alternate" hreflang="x-default" href="/en/">
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
@@ -390,19 +390,19 @@
 
 <body>
 
-  <!-- Bandeau cookies RGPD -->
+  <!-- GDPR cookie banner -->
   <div id="cookieBanner">
     <div id="cookieInner">
       <div id="cookieText">
-        <strong>Cookies & confidentialité</strong><br>
-        Nous utilisons des cookies pour l'analyse et la publicité. Si vous acceptez, les annonces peuvent être plus pertinentes.
-        Si vous refusez, nous affichons uniquement des annonces non personnalisées (moins de tracking).
+        <strong>Cookies & Privacy</strong><br>
+        We use cookies for analytics and advertising. If you accept, ads may be more relevant.
+        If you refuse, we only show non-personalized ads (less tracking).
         <br>
-        <a href="/policy.html" rel="nofollow">En savoir plus</a>
+<a href="/en/privacy" rel="nofollow">Learn more</a>
       </div>
       <div id="cookieBtns">
-        <button id="acceptCookies">Tout accepter</button>
-        <button id="rejectCookies">Refuser la publicité ciblée</button>
+        <button id="acceptCookies">Accept all</button>
+        <button id="rejectCookies">Refuse targeted ads</button>
       </div>
     </div>
   </div>
@@ -411,59 +411,59 @@
 
     <div class="card">
       <div class="titlebar">
-        <h1>Calculatrice de dividendes</h1>
+        <h1>Dividend Calculator</h1>
 
         <p class="seo-tagline">
-          Simulez vos dividendes, votre rendement et l'effet du réinvestissement (DRIP) sur vos revenus passifs.
+          Simulate your dividends, yield, and the impact of reinvestment (DRIP) on your passive income.
         </p>
 
-        <!-- Sélecteur de langue -->
-        <nav class="lang-switch" aria-label="Sélecteur de langue">
-          <a class="active" href="../fr/" lang="fr" aria-current="page">FR</a>
-          <a href="../en/" lang="en">EN</a>
-          <a href="../sv/" lang="sv">SV</a>
-        </nav>
+        <!-- Language switcher -->
+        <nav class="lang-switch" aria-label="Language switcher">
+  <a href="/fr/" lang="fr">FR</a>
+  <a class="active" href="/en/" lang="en" aria-current="page">EN</a>
+  <a href="/sv/" lang="sv">SV</a>
+</nav>
 
-        <!-- Bouton Partager -->
-        <button class="share-btn" id="shareBtn">Partager</button>
+        <!-- Share button -->
+        <button class="share-btn" id="shareBtn">Share</button>
 
         <div class="share-menu" id="shareMenu">
-          <button id="copyLink">Copier le lien</button>
-          <a id="shareEmail" href="#" target="_blank" rel="noopener">Partager par email</a>
-          <a id="shareFB" href="#" target="_blank" rel="noopener">Partager sur Facebook</a>
-          <button id="shareIG">Partager sur Instagram</button>
-          <a id="shareX" href="#" target="_blank" rel="noopener">Partager sur X</a>
-          <button id="exportCSV">Exporter le tableau (CSV)</button>
+          <button id="copyLink">Copy link</button>
+          <a id="shareEmail" href="#" target="_blank" rel="noopener">Share by email</a>
+          <a id="shareFB" href="#" target="_blank" rel="noopener">Share on Facebook</a>
+          <button id="shareIG">Share on Instagram</button>
+          <a id="shareX" href="#" target="_blank" rel="noopener">Share on X</a>
+          <button id="exportCSV">Export table (CSV)</button>
         </div>
       </div>
 
-      <!-- Entrées -->
+      <!-- Inputs -->
       <div class="row">
         <div>
-          <div class="label">Nombre d'actions</div>
+          <div class="label">Number of shares</div>
           <input id="shares" type="number" inputmode="decimal" value="100" step="any">
         </div>
         <div>
-          <div class="label">Prix moyen d'achat (PRU)</div>
-          <input id="pru" type="number" inputmode="decimal" placeholder="ex: 200" step="any">
+          <div class="label">Average purchase price (cost basis)</div>
+          <input id="pru" type="number" inputmode="decimal" placeholder="e.g., 200" step="any">
         </div>
       </div>
 
       <div class="row">
         <div>
           <div class="label tip" style="justify-content:center;">
-            Cours actuel
+            Current price
             <span class="info">ⓘ
-              <span class="tiptext">Cours actuel de marché par action (facultatif).</span>
+              <span class="tiptext">Current market price per share (optional).</span>
             </span>
           </div>
-          <input id="currentPrice" type="number" inputmode="decimal" placeholder="ex: 215" step="any">
+          <input id="currentPrice" type="number" inputmode="decimal" placeholder="e.g., 215" step="any">
         </div>
         <div>
-          <div class="label">Montant du dividende</div>
+          <div class="label">Dividend amount</div>
           <div class="inline">
             <select id="dMode">
-              <option value="amount" selected>Montant</option>
+              <option value="amount" selected>Amount</option>
               <option value="percent">%</option>
             </select>
             <input id="dVal" type="number" inputmode="decimal" value="4" step="any">
@@ -472,16 +472,16 @@
         </div>
       </div>
 
-      <button class="btn" id="calc">Calculer</button>
+      <button class="btn" id="calc">Calculate</button>
 
       <!-- KPIs -->
       <div class="pill">
         <div class="pill-grid">
           <div>
             <div class="violet-title tip" style="justify-content:center;">
-              Rendement sur PRU (yield on cost)
+              Yield on Cost
               <span class="info">ⓘ
-                <span class="tiptext">Rendement basé sur votre PRU, pas sur le cours actuel.</span>
+                <span class="tiptext">Yield based on your cost basis, not on the current price.</span>
               </span>
             </div>
             <div class="yield" id="yieldOnCost">—</div>
@@ -491,32 +491,32 @@
           <div class="v-sep" aria-hidden="true"></div>
 
           <div class="kpi kpi-cost">
-            <small>Investissement total</small>
+            <small>Total investment</small>
             <b id="cost">—</b>
           </div>
         </div>
       </div>
 
       <div class="grid3">
-        <div class="kpi"><small>Dividende mensuel</small><b id="monthly">—</b></div>
-        <div class="kpi"><small>Dividende trimestriel</small><b id="quarterly">—</b></div>
-        <div class="kpi"><small>Dividende annuel total</small><b id="annual">—</b></div>
+        <div class="kpi"><small>Monthly dividend</small><b id="monthly">—</b></div>
+        <div class="kpi"><small>Quarterly dividend</small><b id="quarterly">—</b></div>
+        <div class="kpi"><small>Total annual dividend</small><b id="annual">—</b></div>
       </div>
 
       <div class="pill" id="currentBlock" style="display:none; margin-top:16px;">
         <div class="grid" style="margin-top:10px;">
           <div class="kpi">
-            <small class="tip">Rendement actuel
+            <small class="tip">Current yield
               <span class="info">ⓘ
-                <span class="tiptext">Dividende par action ÷ cours actuel × 100.</span>
+                <span class="tiptext">Dividend per share ÷ current price × 100.</span>
               </span>
             </small>
             <b id="currentYield">—</b>
           </div>
           <div class="kpi">
-            <small class="tip">P/L latent
+            <small class="tip">Unrealized P/L
               <span class="info">ⓘ
-                <span class="tiptext">Plus/moins-value non réalisée = valeur de position − coût total.</span>
+                <span class="tiptext">Unrealized gain/loss = position value − total cost.</span>
               </span>
             </small>
             <b id="plAmount">—</b>
@@ -524,27 +524,27 @@
           <div class="kpi">
             <small class="tip">P/L (%)
               <span class="info">ⓘ
-                <span class="tiptext">((Cours actuel − PRU) ÷ PRU) × 100.</span>
+                <span class="tiptext">((Current price − cost basis) ÷ cost basis) × 100.</span>
               </span>
             </small>
             <b id="plPct">—</b>
           </div>
-          <div class="kpi"><small>Valeur de la position</small><b id="mktValue">—</b></div>
+          <div class="kpi"><small>Position value</small><b id="mktValue">—</b></div>
         </div>
       </div>
 
-      <!-- Projections 10 ans -->
-      <h3 class="section-title violet-title" style="margin-top:56px;">Estimations futures sur 10 ans</h3>
+      <!-- 10-year projections -->
+      <h3 class="section-title violet-title" style="margin-top:56px;">10-Year Future Estimates</h3>
 
       <div class="proj-grid-2">
         <div class="kpi">
-          <small>Taux de croissance du dividende (% / an)</small>
+          <small>Dividend growth rate (% / year)</small>
           <b>
             <input id="divGrowth" type="number" inputmode="decimal" value="3" style="width:100%;margin-top:8px;" step="any">
           </b>
         </div>
         <div class="kpi">
-          <small>Taux de croissance du prix (% / an)</small>
+          <small>Price growth rate (% / year)</small>
           <b>
             <input id="priceGrowth" type="number" inputmode="decimal" value="0" style="width:100%;margin-top:8px;" step="any">
           </b>
@@ -553,38 +553,38 @@
 
       <div class="proj-grid-2" style="margin-top:12px;">
         <div class="kpi">
-          <small>Investissement supplémentaire :</small>
+          <small>Additional investment:</small>
           <b>
-            <input id="extraInvestment" type="number" inputmode="decimal" placeholder="ex: 100" style="width:100%;margin-top:8px;" step="any">
+            <input id="extraInvestment" type="number" inputmode="decimal" placeholder="e.g., 100" style="width:100%;margin-top:8px;" step="any">
           </b>
         </div>
         <div class="kpi">
-          <small>Fréquence de l'investissement :</small>
+          <small>Investment frequency:</small>
           <b>
             <select id="extraInvestFreq" style="width:100%;margin-top:8px;">
-              <option value="monthly" selected>Mensuelle</option>
-              <option value="quarterly">Trimestrielle</option>
-              <option value="yearly">Annuelle</option>
-              <option value="once">Ponctuelle</option>
+              <option value="monthly" selected>Monthly</option>
+              <option value="quarterly">Quarterly</option>
+              <option value="yearly">Yearly</option>
+              <option value="once">One-time</option>
             </select>
           </b>
         </div>
       </div>
 
       <div class="proj-actions">
-        <button class="btn" id="calcProj">SANS DRIP</button>
-        <button class="btn" id="calcProjDrip">AVEC DRIP</button>
+        <button class="btn" id="calcProj">WITHOUT DRIP</button>
+        <button class="btn" id="calcProjDrip">WITH DRIP</button>
       </div>
 
       <div class="drip-note tip">
-        DRIP = Dividend Reinvestment Plan (Plan de réinvestissement des dividendes)
+        DRIP = Dividend Reinvestment Plan
         <span class="info">ⓘ
-          <span class="tiptext">Avec DRIP, les dividendes sont utilisés pour acheter automatiquement des actions supplémentaires au prix projeté, augmentant le nombre d'actions au fil du temps.</span>
+          <span class="tiptext">With DRIP, dividends are used to automatically buy additional shares at the projected price, increasing your share count over time.</span>
         </span>
       </div>
 
       <div id="summary" class="summary">
-        Après 10 ans, vos dividendes cumulés atteignent — €, soit une croissance totale de — %.
+        After 10 years, your cumulative dividends reach — €, i.e., a total growth of —%.
       </div>
       <div id="diffSummary" class="summary"></div>
 
@@ -595,11 +595,11 @@
       <table class="tbl" id="resultTable">
         <thead>
           <tr>
-            <th style="text-align:left">Année</th>
-            <th>Dividendes</th>
-            <th>Rendement (%)</th>
-            <th>Nombre d'actions</th>
-            <th>Valeur du portefeuille</th>
+            <th style="text-align:left">Year</th>
+            <th>Dividends</th>
+            <th>Yield (%)</th>
+            <th>Number of shares</th>
+            <th>Portfolio value</th>
           </tr>
         </thead>
         <tbody id="resultBody"></tbody>
@@ -607,40 +607,40 @@
     </div>
 
     <div class="actions">
-      <button class="btn" id="clear">Réinitialiser</button>
+      <button class="btn" id="clear">Reset</button>
     </div>
 
     <div class="foot">
-      ⚠️ Estimations indicatives. Les dividendes et les prix peuvent varier.
+      ⚠️ Indicative estimates. Dividends and prices may vary.
     </div>
   </div>
 
-  <!-- Contenu éditorial -->
+  <!-- Editorial content -->
   <section id="learn-more" class="content-block">
-    <h2>Tout savoir sur le réinvestissement des dividendes (DRIP)</h2>
-    <p><strong>DRIP</strong> utilise automatiquement les dividendes pour acheter de nouvelles actions – effet boule de neige au fil du temps.</p>
+    <h2>All about Dividend Reinvestment (DRIP)</h2>
+    <p><strong>DRIP</strong> automatically uses your dividends to buy new shares – compounding over time.</p>
 
-    <h3>Exemple simple</h3>
-    <p>Investissez 10 000 € dans une action à <strong>4 % de dividende</strong> et réinvestissez chaque versement :
-       le capital et les revenus augmentent mécaniquement même sans nouvel apport.</p>
+    <h3>Simple example</h3>
+    <p>Invest €10,000 in a stock with a <strong>4% dividend</strong> and reinvest each payment:
+       both principal and income grow mechanically even without adding new money.</p>
 
-    <h3>Avantages</h3>
+    <h3>Benefits</h3>
     <ul>
-      <li><strong>Croissance composée :</strong> les dividendes travaillent pour vous.</li>
-      <li><strong>Efficience :</strong> rachat automatique sans stress manuel.</li>
-      <li><strong>Discipline :</strong> vous n'essayez plus de timer le marché, vous achetez régulièrement.</li>
-      <li><strong>Long terme :</strong> plus grand effet après plusieurs années, pas des semaines.</li>
+      <li><strong>Compound growth:</strong> dividends work for you.</li>
+      <li><strong>Efficiency:</strong> automatic repurchases without manual effort.</li>
+      <li><strong>Discipline:</strong> no more trying to time the market; you buy regularly.</li>
+      <li><strong>Long term:</strong> larger effect after several years, not weeks.</li>
     </ul>
 
-    <h3>Risques</h3>
-    <p>Baisse du cours, réduction/suspension du dividende, risque entreprise. Diversifiez. Ayez un plan si la société réduit de moitié son dividende.</p>
+    <h3>Risks</h3>
+    <p>Falling price, dividend cut/suspension, business risk. Diversify. Have a plan if the company halves its dividend.</p>
 
-    <h3>Comment utiliser la calculatrice</h3>
-    <p>Renseignez vos chiffres. Comparez <strong>SANS DRIP</strong> et <strong>AVEC DRIP</strong>.
-       Le tableau montre année par année combien d'actions vous possédez, combien de dividendes vous recevez et l'évolution de la valeur du portefeuille.</p>
+    <h3>How to use the calculator</h3>
+    <p>Enter your numbers. Compare <strong>WITHOUT DRIP</strong> vs <strong>WITH DRIP</strong>.
+       The table shows, year by year, how many shares you own, how much dividend you receive, and how your portfolio value evolves.</p>
 
     <p class="disclaimer" style="font-size:12px;color:#6a6873;">
-      L'outil est un matériel pédagogique. Pas un conseil d'investissement personnel.
+      This tool is educational material. It is not personal investment advice.
     </p>
   </section>
 
@@ -651,7 +651,7 @@
     // Helpers
     const $ = function(id) { return document.getElementById(id); };
     const fmtNum = function(x) { 
-      return isNaN(x) ? '—' : new Intl.NumberFormat('fr-FR', {maximumFractionDigits: 2}).format(x); 
+      return isNaN(x) ? '—' : new Intl.NumberFormat('en-US', {maximumFractionDigits: 2}).format(x); 
     };
     const fmtPct = function(x) { 
       return (isNaN(x) || !isFinite(x)) ? '—' : x.toFixed(2) + ' %'; 
@@ -687,7 +687,7 @@
       const refForPercent = (!isNaN(cur) && cur > 0) ? cur : pru;
       const dps = resolveDPS(dMode, dVal, refForPercent);
 
-      $('yocRef').textContent = isNaN(pru) ? "PRU non défini." : "Calcul basé sur PRU = " + fmtNum(pru);
+      $('yocRef').textContent = isNaN(pru) ? "Cost basis not defined." : "Calculation based on cost basis = " + fmtNum(pru);
 
       let cost = NaN, annual = NaN, yoc = NaN;
       if (s > 0 && !isNaN(pru)) cost = s * pru;
@@ -783,7 +783,7 @@
           shares += (dividends / price);
         }
 
-        labels.push('Année ' + y);
+        labels.push('Year ' + y);
         divSeries.push(dividends);
         valSeries.push(valueEnd);
         totalDiv += dividends;
@@ -802,10 +802,10 @@
       const baseline = initShares * initDps * Y;
       const growthPct = (baseline > 0) ? ((totalDiv - baseline) / baseline) * 100 : NaN;
       $('summary').textContent =
-        'Après 10 ans, vos dividendes cumulés atteignent ' + fmtNum(totalDiv) + ' €, ' +
-        'soit une croissance totale de ' + fmtPct(growthPct) + '.';
+        'After 10 years, your cumulative dividends reach ' + fmtNum(totalDiv) + ' €, ' +
+        'i.e., a total growth of ' + fmtPct(growthPct) + '.';
 
-      // Comparaison DRIP vs sans DRIP
+      // DRIP vs non-DRIP comparison
       let sharesNo = initShares;
       let dpsNo = initDps;
       let priceNo = isNaN(price0Raw) ? 0 : price0Raw;
@@ -834,8 +834,8 @@
         const diffAmt = totalDiv - totalDivNo;
         const diffPct = (totalDivNo > 0) ? (diffAmt / totalDivNo) * 100 : NaN;
         diffEl.textContent =
-          'Différence : ' + (diffAmt >= 0 ? '+' : '') + fmtNum(diffAmt) + ' € (' + fmtPct(diffPct) + ') ' +
-          'grâce au réinvestissement des dividendes.';
+          'Difference: ' + (diffAmt >= 0 ? '+' : '') + fmtNum(diffAmt) + ' € (' + fmtPct(diffPct) + ') ' +
+          'thanks to dividend reinvestment.';
       } else {
         diffEl.textContent = '';
       }
@@ -848,7 +848,7 @@
           labels: labels,
           datasets: [
             {
-              label: 'Total dividendes',
+              label: 'Total dividends',
               data: divSeries,
               backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--violet').trim(),
               borderWidth: 0,
@@ -856,7 +856,7 @@
               categoryPercentage: 0.7
             },
             {
-              label: 'Valeur du portefeuille',
+              label: 'Portfolio value',
               data: valSeries,
               backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--rose').trim(),
               borderWidth: 0,
@@ -873,7 +873,7 @@
               beginAtZero: true,
               ticks: {
                 callback: function(v) { 
-                  return new Intl.NumberFormat('fr-FR', {maximumFractionDigits: 0}).format(v); 
+                  return new Intl.NumberFormat('en-US', {maximumFractionDigits: 0}).format(v); 
                 }
               }
             }
@@ -909,7 +909,7 @@
       }
     }
 
-    // Partage & export
+    // Sharing & export
     const shareBtn = $('shareBtn');
     const shareMenu = $('shareMenu');
     shareBtn.addEventListener('click', function() {
@@ -926,9 +926,9 @@
     $('copyLink').addEventListener('click', function() {
       saveToHash();
       navigator.clipboard.writeText(location.href).then(function() {
-        $('copyLink').textContent = 'Lien copié ✅';
+        $('copyLink').textContent = 'Link copied ✅';
         setTimeout(function() { 
-          $('copyLink').textContent = 'Copier le lien'; 
+          $('copyLink').textContent = 'Copy link'; 
         }, 1200);
       });
     });
@@ -936,8 +936,8 @@
     $('shareEmail').addEventListener('click', function(e) {
       e.preventDefault();
       saveToHash();
-      const subject = encodeURIComponent('Mon calcul de dividendes');
-      const body = encodeURIComponent('Voici mon lien:\n' + location.href);
+      const subject = encodeURIComponent('My dividend calculation');
+      const body = encodeURIComponent('Here is my link:\n' + location.href);
       location.href = 'mailto:?subject=' + subject + '&body=' + body;
     });
 
@@ -951,14 +951,14 @@
     $('shareIG').addEventListener('click', function() {
       saveToHash();
       navigator.clipboard.writeText(location.href).then(function() {
-        alert("Lien copié. Ouvre Instagram et colle-le dans ta bio ou un message.");
+        alert("Link copied. Open Instagram and paste it in your bio or a message.");
       });
     });
 
     $('shareX').addEventListener('click', function(e) {
       e.preventDefault();
       saveToHash();
-      const text = encodeURIComponent('Mon calcul de dividendes');
+      const text = encodeURIComponent('My dividend calculation');
       const url = encodeURIComponent(location.href);
       window.open('https://twitter.com/intent/tweet?text=' + text + '&url=' + url, '_blank', 'noopener');
     });
@@ -974,13 +974,13 @@
           tds[4].textContent
         ];
       });
-      const header = ['Année', 'Dividendes', 'Rendement (%)', 'Nombre d\'actions', 'Valeur du portefeuille'];
-      const csv = [header.join(';')].concat(rows.map(function(r) { return r.join(';'); })).join('\n');
+      const header = ['Year', 'Dividends', 'Yield (%)', 'Number of shares', 'Portfolio value'];
+      const csv = [header.join(',')].concat(rows.map(function(r) { return r.join(','); })).join('\n');
       const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'dividendes_projections.csv';
+      a.download = 'dividends_projections.csv';
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
@@ -1005,7 +1005,7 @@
         $(id).addEventListener('change', function() {});
       });
 
-    // Gestion consentement cookies
+    // Cookie consent handling
     (function() {
       const STORAGE_KEY = 'userConsentAds';
 
@@ -1037,11 +1037,100 @@
       });
     })();
 
-    // Initialisation
+    // Init
     loadFromHash();
     compute();
   })();
   </script>
+<footer class="footer">
+  <section id="a-propos" class="footer__about">
+    <h2>About</h2>
+    <p>
+      <strong>DividendSimulator.com</strong> is a free tool created by <em>Business Total</em> to help
+      investors estimate their passive income and understand the effect of dividend reinvestment (DRIP).
+      Results are <strong>educational estimates</strong> and do not constitute investment advice.
+    </p>
+  </section>
+
+  <section id="faq" class="footer__faq">
+    <h2>FAQ</h2>
+
+    <details>
+      <summary>How does this calculator work?</summary>
+      <p>
+        Enter your data (number of shares, cost basis, dividend…). The calculation shows your monthly, quarterly, and annual income,
+        as well as a projection with and without DRIP. Amounts are indicative and can vary depending on the company and the market.
+      </p>
+    </details>
+
+    <details>
+      <summary>What’s the difference between yield and dividend?</summary>
+      <p>
+        The <strong>dividend</strong> is the amount paid per share. The <strong>yield</strong> is that dividend relative
+        to the share price (dividend ÷ price). Yield moves with price and corporate decisions.
+      </p>
+    </details>
+
+    <details>
+      <summary>Is the data real-time?</summary>
+      <p>
+        No. The calculator uses the values you enter. It does not display real-time market data.
+      </p>
+    </details>
+
+    <details>
+      <summary>Can I use this tool for any stock?</summary>
+      <p>
+        Yes, as long as you know the dividend and your own numbers (cost basis, quantity, etc.). Always check the company’s
+        official sources for dividend amounts.
+      </p>
+    </details>
+  </section>
+
+  <nav class="footer__links">
+    <a href="/en/privacy.html">Legal notice &amp; Privacy policy</a>
+    <button id="manage-consent" type="button" aria-label="Manage my cookie preferences">Manage my cookie preferences</button>
+  </nav>
+
+  <div class="footer__i18n">🌍 Available in:
+    <a href="/fr/">Français</a> • <a href="/en/">English</a> • <a href="/sv/">Svenska</a>
+  </div>
+
+  <div class="footer__copy">© 2025 DividendSimulator.com — Free financial education tool.</div>
+</footer>
+
+<!-- Optional: small local style (keeps your design) -->
+<style>
+  .footer{margin-top:64px;padding:28px 20px;border-top:1px solid rgba(0,0,0,.06)}
+  .footer h2{font-size:1.1rem;margin:0 0 .6rem 0}
+  .footer__about p{margin:0 0 1rem 0;line-height:1.6}
+  .footer__faq details{margin:.5rem 0;padding:.6rem .8rem;background:rgba(0,0,0,.03);border-radius:10px}
+  .footer__links{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px}
+  .footer__links a{text-decoration:underline}
+  .footer__links button{border:1px solid rgba(0,0,0,.2);border-radius:10px;padding:.4rem .7rem;background:#fff;cursor:pointer}
+  .footer__i18n{margin-top:10px;opacity:.8}
+  .footer__copy{margin-top:14px;font-weight:600}
+</style>
+
+<script>
+  // If you had an old "Learn more" link pointing to a non-existent page, redirect it properly:
+  document.querySelectorAll('a[href*="en-savoir-plus"]').forEach(a => a.href = '/en/privacy.html');
+
+  // Button to re-ask for consent (wire it to your banner/modal if you have one)
+  document.getElementById('manage-consent')?.addEventListener('click', () => {
+    // Minimal example: switch back to a denied state (opens the door to your own consent modal)
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'personalization_storage': 'denied',
+        'functionality_storage': 'granted',
+        'security_storage': 'granted'
+      });
+    }
+    alert("Preferences reset. Reopen the cookie banner to choose your options.");
+  });
+</script>
 
 </body>
 </html>
