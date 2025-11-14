@@ -399,7 +399,7 @@
         Nous utilisons des cookies pour l'analyse et la publicité. Si vous acceptez, les annonces peuvent être plus pertinentes.
         Si vous refusez, nous affichons uniquement des annonces non personnalisées (moins de tracking).
         <br>
-<a href="/fr/privacy.html" rel="nofollow">En savoir plus</a>
+<a href="/fr/privacy" rel="nofollow">En savoir plus</a>
       </div>
       <div id="cookieBtns">
         <button id="acceptCookies">Tout accepter</button>
@@ -419,11 +419,12 @@
         </p>
 
         <!-- Sélecteur de langue -->
-        <nav class="lang-switch" aria-label="Sélecteur de langue">
-          <a class="active" href="../fr/" lang="fr" aria-current="page">FR</a>
-          <a href="../en/" lang="en">EN</a>
-          <a href="../sv/" lang="sv">SV</a>
-        </nav>
+        <nav class="lang-switch" aria-label="Language switcher">
+  <a class="active" href="/fr/" lang="fr" aria-current="page">FR</a>
+  <a href="/en/" lang="en">EN</a>
+  <a href="/sv/" lang="sv">SV</a>
+</nav>
+
 
         <!-- Bouton Partager -->
         <button class="share-btn" id="shareBtn">Partager</button>
@@ -717,7 +718,6 @@
       }
 
       computeProjections(false);
-      saveToHash();
     }
 
     function computeProjections(useDRIP) {
