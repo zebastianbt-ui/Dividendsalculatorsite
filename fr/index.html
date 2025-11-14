@@ -34,10 +34,11 @@
   <meta name="description" content="Calculatrice de dividendes en français (DRIP inclus). Estimez vos revenus, rendement sur PRU, projections sur 10 ans, avec ou sans réinvestissement des dividendes.">
 
   <!-- HREFLANG -->
-  <link rel="alternate" hreflang="fr" href="../fr/"/>
-  <link rel="alternate" hreflang="en" href="../en/"/>
-  <link rel="alternate" hreflang="sv" href="../sv/"/>
-  <link rel="alternate" hreflang="x-default" href="../en/"/>
+  <link rel="alternate" hreflang="fr" href="/fr/">
+<link rel="alternate" hreflang="en" href="/en/">
+<link rel="alternate" hreflang="sv" href="/sv/">
+<link rel="alternate" hreflang="x-default" href="/en/">
+
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
@@ -398,7 +399,7 @@
         Nous utilisons des cookies pour l'analyse et la publicité. Si vous acceptez, les annonces peuvent être plus pertinentes.
         Si vous refusez, nous affichons uniquement des annonces non personnalisées (moins de tracking).
         <br>
-        <a href="/policy.html" rel="nofollow">En savoir plus</a>
+<a href="/fr/privacy.html" rel="nofollow">En savoir plus</a>
       </div>
       <div id="cookieBtns">
         <button id="acceptCookies">Tout accepter</button>
@@ -1042,6 +1043,95 @@
     compute();
   })();
   </script>
+<footer class="footer">
+  <section id="a-propos" class="footer__about">
+    <h2>À propos</h2>
+    <p>
+      <strong>DividendSimulator.com</strong> est un outil gratuit conçu par <em>Business Total</em> pour aider
+      les investisseurs à estimer leurs revenus passifs et comprendre l’effet du réinvestissement des dividendes (DRIP).
+      Les résultats sont des <strong>estimations pédagogiques</strong> et ne constituent pas un conseil en investissement.
+    </p>
+  </section>
+
+  <section id="faq" class="footer__faq">
+    <h2>FAQ</h2>
+
+    <details>
+      <summary>Comment fonctionne cette calculatrice&nbsp;?</summary>
+      <p>
+        Saisissez vos données (nombre d’actions, PRU, dividende…). Le calcul affiche vos revenus mensuels, trimestriels et annuels,
+        ainsi qu’une projection avec et sans DRIP. Les montants sont indicatifs et peuvent varier selon l’entreprise et le marché.
+      </p>
+    </details>
+
+    <details>
+      <summary>Quelle est la différence entre rendement et dividende&nbsp;?</summary>
+      <p>
+        Le <strong>dividende</strong> est la somme versée par action. Le <strong>rendement</strong> est ce dividende rapporté
+        au prix de l’action (dividende ÷ cours). Le rendement évolue avec le cours et les décisions de l’entreprise.
+      </p>
+    </details>
+
+    <details>
+      <summary>Les données sont-elles en temps réel&nbsp;?</summary>
+      <p>
+        Non. La calculatrice utilise les valeurs que vous indiquez. Elle n’affiche pas de données de marché en temps réel.
+      </p>
+    </details>
+
+    <details>
+      <summary>Puis-je utiliser cet outil pour n’importe quelle action&nbsp;?</summary>
+      <p>
+        Oui, tant que vous connaissez le dividende et vos propres chiffres (PRU, quantité, etc.). Vérifiez toujours les sources
+        officielles de l’entreprise pour les montants de dividendes.
+      </p>
+    </details>
+  </section>
+
+  <nav class="footer__links">
+    <a href="/fr/privacy.html">Mentions légales &amp; Politique de confidentialité</a>
+    <button id="manage-consent" type="button" aria-label="Gérer mes préférences de cookies">Gérer mes préférences cookies</button>
+  </nav>
+
+  <div class="footer__i18n">🌍 Disponible en&nbsp;:
+    <a href="/fr/">Français</a> • <a href="/en/">English</a> • <a href="/sv/">Svenska</a>
+  </div>
+
+  <div class="footer__copy">© 2025 DividendSimulator.com — Outil gratuit d’éducation financière.</div>
+</footer>
+
+<!-- Optionnel : mini-style local (garde ton design) -->
+<style>
+  .footer{margin-top:64px;padding:28px 20px;border-top:1px solid rgba(0,0,0,.06)}
+  .footer h2{font-size:1.1rem;margin:0 0 .6rem 0}
+  .footer__about p{margin:0 0 1rem 0;line-height:1.6}
+  .footer__faq details{margin:.5rem 0;padding:.6rem .8rem;background:rgba(0,0,0,.03);border-radius:10px}
+  .footer__links{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px}
+  .footer__links a{text-decoration:underline}
+  .footer__links button{border:1px solid rgba(0,0,0,.2);border-radius:10px;padding:.4rem .7rem;background:#fff;cursor:pointer}
+  .footer__i18n{margin-top:10px;opacity:.8}
+  .footer__copy{margin-top:14px;font-weight:600}
+</style>
+
+<script>
+  // Si tu avais un ancien lien "En savoir plus" qui pointait vers une page inexistante, on le redirige proprement :
+  document.querySelectorAll('a[href*="en-savoir-plus"]').forEach(a => a.href = '/fr/privacy.html');
+
+  // Bouton pour re-demander le consentement (à raccorder à ton bandeau si tu en as un)
+  document.getElementById('manage-consent')?.addEventListener('click', () => {
+    // Exemple minimal : repasser à un état refusé (ouvre la voie à ton propre modal de consentement)
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'personalization_storage': 'denied',
+        'functionality_storage': 'granted',
+        'security_storage': 'granted'
+      });
+    }
+    alert("Préférences réinitialisées. Rouvrez le bandeau de cookies pour choisir vos options.");
+  });
+</script>
 
 </body>
 </html>
