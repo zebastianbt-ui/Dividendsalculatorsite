@@ -336,12 +336,13 @@
     }
 
     .content-block{
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:16px;
-      padding:24px;
-      margin-top:24px;
-    }
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:24px;
+  max-width:860px;
+  margin:28px auto;   /* centre et crée l’air autour */
+}
     .content-block h2{
       color:var(--violet);
       font-family:'Sora',sans-serif;
@@ -396,7 +397,7 @@
         Vi använder cookies för analys och för att visa annonser. Om du accepterar kan annonser bli mer relevanta.
         Om du nekar visar vi bara icke-personanpassade annonser (mindre spårning).
         <br>
-        <a href="/policy.html" rel="nofollow">Läs mer</a>
+        <a href="/sv/privacy" rel="nofollow">Läs mer</a>
       </div>
       <div id="cookieBtns">
         <button id="acceptCookies">Acceptera allt</button>
@@ -416,11 +417,12 @@
         </p>
 
         <!-- Language switcher -->
-        <nav class="lang-switch" aria-label="Språkväxlare">
-          <a href="../fr/" lang="fr">FR</a>
-          <a href="../en/" lang="en">EN</a>
-          <a class="active" href="../sv/" lang="sv" aria-current="page">SV</a>
-        </nav>
+        <nav class="lang-switch" aria-label="Language switcher">
+  <a href="/fr/" lang="fr">FR</a>
+  <a href="/en/" lang="en">EN</a>
+  <a class="active" href="/sv/" lang="sv" aria-current="page">SV</a>
+</nav>
+
 
         <!-- Share button -->
         <button class="share-btn" id="shareBtn">Dela</button>
@@ -614,35 +616,33 @@
   </div>
 
   <!-- Editorial content -->
-  <section id="learn-more" class="content-block" style="max-width:860px;margin:28px auto;padding:0 16px;">
-    <div class="card">
-      <h2>Lär dig allt om återinvestering av utdelningar (DRIP)</h2>
-      <p><strong>DRIP</strong> använder automatiskt utdelningen för att köpa fler aktier i samma bolag – ränta-på-ränta-effekt över tid.</p>
+  <section id="learn-more" class="content-block">
+  <h2>Lär dig allt om återinvestering av utdelningar (DRIP)</h2>
+  <p><strong>DRIP</strong> använder automatiskt utdelningen för att köpa fler aktier i samma bolag – ränta-på-ränta-effekt över tid.</p>
 
-      <h3>Enkelt exempel</h3>
-      <p>Investera 10 000 € i en aktie med <strong>4 % utdelning</strong> och återinvestera varje utbetalning:
-         kapital och utdelningar växer mekaniskt även om du inte sätter in mer pengar.</p>
+  <h3>Enkelt exempel</h3>
+  <p>Investera 10 000 € i en aktie med <strong>4 % utdelning</strong> och återinvestera varje utbetalning:
+     kapital och utdelningar växer mekaniskt även om du inte sätter in mer pengar.</p>
 
-      <h3>Fördelar</h3>
-      <ul>
-        <li><strong>Sammanlagd tillväxt:</strong> utdelningen jobbar åt dig.</li>
-        <li><strong>Effektivitet:</strong> automatisk återköp utan manuell stress.</li>
-        <li><strong>Disciplin:</strong> du försöker inte längre tajma marknaden, du köper regelbundet.</li>
-        <li><strong>Lång horisont:</strong> störst effekt efter flera år, inte veckor.</li>
-      </ul>
+  <h3>Fördelar</h3>
+  <ul>
+    <li><strong>Sammanlagd tillväxt:</strong> utdelningen jobbar åt dig.</li>
+    <li><strong>Effektivitet:</strong> automatisk återköp utan manuell stress.</li>
+    <li><strong>Disciplin:</strong> du försöker inte längre tajma marknaden, du köper regelbundet.</li>
+    <li><strong>Lång horisont:</strong> störst effekt efter flera år, inte veckor.</li>
+  </ul>
 
-      <h3>Risker</h3>
-      <p>Kursfall, utdelningssänkningar, bolagsrisk. Sprid risken. Ha en plan om bolaget halverar utdelningen.</p>
+  <h3>Risker</h3>
+  <p>Kursfall, utdelningssänkningar, bolagsrisk. Sprid risken. Ha en plan om bolaget halverar utdelningen.</p>
 
-      <h3>Så använder du kalkylatorn</h3>
-      <p>Fyll i dina siffror. Jämför <strong>UTAN DRIP</strong> och <strong>MED DRIP</strong>.
-         Tabellen visar år för år hur många aktier du äger, hur mycket utdelning du får och hur portföljvärdet utvecklas.</p>
+  <h3>Så använder du kalkylatorn</h3>
+  <p>Fyll i dina siffror. Jämför <strong>UTAN DRIP</strong> och <strong>MED DRIP</strong>.
+     Tabellen visar år för år hur många aktier du äger, hur mycket utdelning du får och hur portföljvärdet utvecklas.</p>
 
-      <p class="disclaimer" style="font-size:12px;color:#6a6873;">
-        Verktyget är utbildningsmaterial. Ej personligt investeringsråd.
-      </p>
-    </div>
-  </section>
+  <p class="disclaimer" style="font-size:12px;color:#6a6873;">
+    Verktyget är utbildningsmaterial. Ej personligt investeringsråd.
+  </p>
+</section>
 
   <script>
   (function() {
